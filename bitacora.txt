@@ -1,2 +1,10 @@
 http://127.0.0.1:5500/index.html
+protocol:http
 127.0.0.1:5500
+port:5500
+request:GET
+code:304
+GET /promociones.html
+    -code:404
+html:
+will show
