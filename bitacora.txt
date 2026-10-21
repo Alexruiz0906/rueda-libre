@@ -7,8 +7,26 @@ code:304
 GET /promociones.html
     -code:404
 html:
-will be the structure of the webpage
+Hara la estructura base de la pagina web
 css:
-will make the webpage more attractive
+Hara la pagina web mas atractiva visualmente
 javascript
-will make the webpage more interactive
+Hara la pagina web mas interactiva con el usuario
+
+rutas
+origen | Destino | Ruta escrita
+index.html | Tarifas | paginas/tarifas.html
+index.html | Sección de tarifas de bicicletas | paginas/tarifas.html#tarifas-bicicletas
+index.html | Reservas | paginas/reservas.html
+index.html | Imagen de bicicleta | img/bicicleta.jpg
+index.html | Imagen de ruta | img/ruta.jpg
+index.html | Sección "Encuéntranos" (ancla) | #find-us
+index.html | Google Maps | https://maps.app.goo.gl/ooEiGXqQgTfTZhTu9
+index.html | Correo de contacto | mailto:info@ruedalibre.com
+paginas/reservas.html | Inicio | ../index.html
+paginas/reservas.html | Tarifas | tarifas.html
+paginas/reservas.html | Correo de contacto | mailto:info@ruedalibre.com
+paginas/tarifas.html | Inicio | ../index.html
+paginas/tarifas.html | Reservas | reservas.html
+paginas/tarifas.html | Reservar ahora | reservas.html
+paginas/tarifas.html | Correo de contacto | mailto:info@ruedalibre.com
