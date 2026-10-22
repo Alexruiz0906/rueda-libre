@@ -4,20 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas</title>
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="tarifas.html">Tarifas</a></li>
-            <li>Reservas</li>
-        </ul>
+    <nav id="navegator">
+            <div id="nav-home">
+                <a href="../index.html" id="home">Inicio</a></li>
+            </div>
+            <div id="nav-tarifas">
+                <a href="tarifas.html" id="tarifas">Tarifas</a></li>
+            </div>
+            <div id="nav-reservas">
+                <a href="reservas.html" id="reservas">Reservas</a></li>
+            </div>
     </nav>
-    <header>
+    <header id="header">
         <h1>Reservas de bicicletas</h1>
         <p>Realiza tu reserva de bicicletas en Medellín a través de nuestro correo.</p>
     </header>
-    <main>
+    <main id="main">
+            <fieldset>
+                <legend><b>Formulario de reserva</b></legend>
+                <form action="../index.html" method="post" id="reservation-form">
+                    <div id="form-fields">
+                        <div id="form-name">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="user_name" />
+                        </div>
+                        <div id="form-email">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="user_email" />
+                        </div> 
+                        <div id="form-date">
+                            <label for="date">Fecha de reserva</label>
+                            <input type="date" id="date" name="reservation_date" />
+                        </div>
+                        <button type="submit"><b>Enviar</button>
+                    </div>
+                </form>
+            </fieldset>
+    </main>
+    <footer>
+        <p>&copy; 2026 Rueda Libre. Todos los derechos reservados. Riwi.</p>
         <dl>
             <dd>Contacto:</dd>
             <dt>Email: <a href="mailto:info@ruedalibre.com">info@ruedalibre.com</a></dt>
@@ -25,10 +53,7 @@
             <dt>Lunes a viernes: 8:00 a.m. - 6:00 p.m.</dt>
             <dt>Sábados y domingos: 9:00 a.m. - 5:00 p.m.</dt>
         </dl>
-    </main>
-        <footer>
-            <p>&copy; 2026 Rueda Libre. Todos los derechos reservados. Riwi.</p>
 
-        </footer>
+    </footer>
 </body>
 </html>
