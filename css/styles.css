@@ -1,109 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/*Index.html body*/
+
+:root{
+    --verde-ruta: #1E7A4F;
+    --naranja-pedal: #F39A2B;
+    --azul-noche: #14213D;
+    --crema: #FAF6EF;
+    --gris-asfalto: #5B6470;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--crema);
+    color: var(--azul-noche);
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header p,
+.subtitles {
+    font-family: 'Open Sans', sans-serif;
+}
+
 #main-index {
     flex: 3;
-    justify-content: center;
-    align-items: center;
-    min-height: 60vh;
-    gap: 20px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 .index-layout{
     display: flex;
-    margin: 0px auto;
-    padding: 0px;
+    align-items: stretch;
+    gap: 1.5rem;
+    width: min(75rem, 100%);
+    margin: 0 auto;
+    padding: 1.5rem;
 }
 aside{
-    flex:1;
-    border-left: 1px solid black;
-    border-radius: 4px ;
-    background-color: aliceblue;
-    text-align: center;
+    flex: 1;
+    min-width: 13.75rem;
+    align-self: flex-start;
+    padding: 1.5rem;
+    border-left: 0.25rem solid var(--verde-ruta);
+    border-radius: 0.625rem;
+    background-color: var(--crema);
+    color: var(--azul-noche);
 }
 #services{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 5% 10%;
-    margin-top: 20px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: 0 1px 1px rgb(0, 0, 0.15);
-
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border-radius: 0.625rem;
+    background-color: var(--crema);
+    color: var(--azul-noche);
+    box-shadow: 0 0.25rem 0.9375rem rgba(20, 33, 61, 0.1);
 }
 #services-box{
     display: flex;
-    gap: 20px;
+    align-items: stretch;
     width: 100%;
 }
 #services h2{
-    text-align: center;
-    margin-bottom: 20px;
+    color: var(--azul-noche);
 }
 #services article{
     flex: 1;
-    box-sizing: border-box;
+    min-width: 0;
+    padding: 0.5rem 1.25rem;
+}
+#services article + article{
+    border-left: 0.125rem solid var(--verde-ruta);
 }
 .subtitles{
     text-align: center;
+    margin-bottom: 0.875rem;
+    color: var(--azul-noche);
+}
+.service img{
+    display: block;
+    width: 100%;
+    height: 11.25rem;
+    margin-bottom: 0.875rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+.service p{
+    line-height: 1.6;
 }
 #bike-rental{
     text-align: center;
 }
-#bike-rental button {
-    padding: 10px 20px;
+#boton-tarifas {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.625em 1.125em;
     border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    border-radius: 0.5rem;
     font-weight: bolder;
-}
-#bike-rental a{
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+    transition: background-color 0.2s ease;
     text-decoration: none;
-    color: inherit;
 }
-#bike-rental button:hover{
-    background-color: aquamarine;
+#boton-tarifas:hover{
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+}
+#tarifas-main {
+    width: 90%;
+    margin: 1.875rem auto;
+    color: var(--azul-noche);
+}
+#tarifas-bicicletas,
+#tarifas-recorridos {
+    width: 100%;
+    margin-bottom: 1.875rem;
+    border-collapse: collapse;
+    background-color: var(--crema);
+}
+#tarifas-bicicletas caption,
+#tarifas-recorridos caption {
+    padding: 0.75rem;
+    color: var(--azul-noche);
+    text-align: left;
+}
+#tarifas-bicicletas th,
+#tarifas-bicicletas td,
+#tarifas-recorridos th,
+#tarifas-recorridos td {
+    padding: 0.75rem;
+    border: 0.0625rem solid var(--gris-asfalto);
+    text-align: left;
+}
+#tarifas-bicicletas thead,
+#tarifas-recorridos thead {
+    background-color: var(--naranja-pedal);
+}
+#tarifas-bicicletas tbody tr:nth-child(even),
+#tarifas-recorridos tbody tr:nth-child(even) {
+    background-color: var(--crema);
+}
+#nota-tarifas {
+    margin-bottom: 1.25rem;
+    color: var(--gris-asfalto);
+}
+#boton-reservar {
+    display: inline-block;
+    padding: 0.75em 1.25em;
+    border-radius: 0.5rem;
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+    font-weight: bold;
+    text-decoration: none;
+}
+#boton-reservar:hover {
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
 }
 #how-to-rent{
-    color: white;
-    background-color: #2496ff;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15)
+    padding: 1.5rem;
+    border-radius: 0.625rem;
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+    box-shadow: 0 0.25rem 0.9375rem rgba(20, 33, 61, 0.1);
 }
 
 #how-to-rent h2{
-    text-align: center;
+    margin-bottom: 0.875rem;
 }
 #how-to-rent ol{
-    display: table;
-    margin: 0 auto;
+    padding-left: 1.5rem;
+    line-height: 1.8;
+}
+#about-us,
+#find-us{
+    padding: 0.5rem 0 1.25rem;
+}
+#find-us{
+    padding-top: 1.25rem;
+    border-top: 0.0625rem solid var(--gris-asfalto);
+}
+aside h2{
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+}
+aside p{
+    line-height: 1.6;
 }
 
-/*Main*/
 nav {
-    background-color: #4f90ff;
+    background-color: var(--crema);
     color: #00000000;
     display: flex;
     width: 100%;
 }
 
 nav ul {
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     display: flex;
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 3.125rem;
     width: 100%;
-    padding: 0px;
+    padding: 0;
 }
 nav li {
     flex: 1;
-    border-radius: 3px;
+    border-radius: 0.1875rem;
     height: 100%;
     transition: all 0.5s ease;
     box-sizing: border-box;
@@ -111,8 +225,22 @@ nav li {
     align-items: center;
     cursor: pointer;
 }
+nav li.logo-item {
+    flex: 0 0 11.25rem;
+}
+nav li.logo-item a {
+    padding: 0;
+    overflow: hidden;
+}
+nav li.logo-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 nav li a {
-    color: white;
+    color: var(--verde-ruta);
     text-decoration: none;
     font-weight: bold;
     transition: all 0.5s ease;
@@ -122,94 +250,177 @@ nav li a {
     width: 100%;
     height: 100%;
 }
+nav li a[aria-current="page"] {
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
+}
 nav li:hover{
-    background-color: aquamarine;
-    box-shadow: 0px 1px #000000;
+    background-color: var(--verde-ruta);
+    box-shadow: 0 0.0625rem var(--azul-noche);
 }
 nav li:hover a{
-    color: black;
+    color: var(--crema);
     
 }
+nav li a[aria-current="page"]:hover {
+    background-color: var(--verde-ruta);
+    color: var(--crema);
+}
 header {
-    background-color: #2496ff;
-    color: white;
-    padding: 20px;
+    background-color: var(--azul-noche);
+    color: var(--crema);
+    padding: 1.25rem;
     text-align: center;
-    box-shadow: #414244 ;
+    box-shadow: 0 0.125rem 0.5rem rgba(20, 33, 61, 0.12);
+}
+
+@media (max-width: 47.5rem) {
+    .index-layout {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    #services-box {
+        flex-direction: column;
+    }
+    #services article {
+        padding: 1.25rem 0;
+    }
+    #services article + article {
+        border-left: none;
+        border-top: 0.125rem solid var(--verde-ruta);
+    }
+    aside {
+        min-width: 0;
+    }
 }
 
 #reservation-form {
-    align-items: center;
-    justify-content: center;
-    margin: 10%;
-    margin-top: 20px;
-    padding: 50px;
+    width: min(45rem, 100%);
+    margin: 1.5rem auto 2.5rem;
+    padding: 0 1rem;
 }
 #reserv{
-    align-content: center;
+    padding: 0 0.5rem;
     font-weight: bold;
+    color: var(--azul-noche);
 }
 #form-fields {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    text-align: center;
+    align-items: stretch;
+    gap: 1rem;
 }
 
 #form-fields > div {
+    color: var(--azul-noche);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 5px;
+    align-items: stretch;
+    gap: 0.375rem;
     width: 100%;
+}
+#form-fields label,
+#form-fields .form-label {
+    color: var(--azul-noche);
+    font-weight: 500;
 }
 
 fieldset {
-    width: 380px;
-    max-width: 100%;
-    border: none;
-    border-radius: 20px;
-    padding: 28px;
-    margin: 0;
-    background-color: #2496ff;
-    color: white;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-    transition: transform 0.05s linear;
-}
-fieldset:hover{
-    transform: scale(1.02);
-}
-
-#form-fields input {
     width: 100%;
-    padding: 10px;
     border: none;
-    border-radius: 8px;
-}
-#form-fields input:hover{
-    background-color: darkgray;
+    border-radius: 1rem;
+    padding: 1.75rem;
+    background-color: var(--crema);
+    color: var(--azul-noche);
+    box-shadow: 0 0.5rem 1.5rem rgba(20, 33, 61, 0.12);
 }
 
+#form-hours {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+#form-hours legend {
+    margin-bottom: 0.375rem;
+    color: var(--azul-noche);
+    font-weight: 500;
+}
+
+#form-fields input:not([type="checkbox"]),
+#form-fields select,
+#form-fields textarea {
+    width: 100%;
+    padding: 0.6875rem 0.75rem;
+    border: 0.0625rem solid rgba(91, 100, 112, 0.4);
+    border-radius: 0.5rem;
+    background-color: var(--crema);
+    color: var(--azul-noche);
+    font: inherit;
+}
+#form-fields input:not([type="checkbox"]):focus,
+#form-fields select:focus,
+#form-fields textarea:focus {
+    outline: 0.125rem solid var(--verde-ruta);
+    outline-offset: 0.0625rem;
+}
+#form-fields textarea {
+    resize: vertical;
+}
+#form-fields input::placeholder,
+#form-fields textarea::placeholder {
+    color: var(--gris-asfalto);
+    opacity: 1;
+}
+.form-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+}
+#form-fields .form-options label,
+#form-fields .policy-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-weight: normal;
+}
+#form-fields input[type="checkbox"] {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 0;
+    accent-color: var(--verde-ruta);
+}
 #form-fields button {
-    padding: 10px 20px;
+    align-self: flex-start;
+    padding: 0.6875em 1.375em;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
+    background-color: var(--verde-ruta);
+    color: var(--crema);
     cursor: pointer;
-    font-weight: bolder;
+    font: inherit;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
 }
 #form-fields button:hover{
-    background-color: azure;
+    background-color: var(--naranja-pedal);
+    color: var(--azul-noche);
 }
-#form-name {
-    margin: 0;
-    align-items: center;
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 0.125rem solid var(--azul-noche);
+    outline-offset: 0.125rem;
 }
 
 footer {
-    background-color: #6fc1ff;
+    background-color: var(--crema);
     text-align: center;
-    border-bottom: 0px;
+    border-bottom: 0;
 }
 footer dt{
     font-weight: bold;
@@ -219,5 +430,5 @@ footer p{
 }
 footer a{
     text-decoration: none;
-    color: inherit;
+    color: var(--verde-ruta);
 }

@@ -30,3 +30,23 @@ paginas/tarifas.html | Inicio | ../index.html
 paginas/tarifas.html | Reservas | reservas.html
 paginas/tarifas.html | Reservar ahora | reservas.html
 paginas/tarifas.html | Correo de contacto | mailto:info@ruedalibre.com
+
+BITACORA DE AUDITORIA DE ACCESIBILIDAD
+Fecha: 2026-10-23
+
+Hallazgos y correcciones
+1. El texto alternativo de las imagenes del logo y del mapa no describia con precision su funcion. Se ajusto el alt del logo a "Logo de Rueda Libre" y el del mapa a "Mapa de rutas para recorrer Medellin en bicicleta". Las imagenes informativas de bicicleta y mapa tienen texto alternativo.
+2. La navegacion no tenia un nombre accesible para identificar su region. Se agrego aria-label="Navegacion principal" en las tres paginas.
+3. En Inicio, un enlace estaba anidado dentro de un boton, creando controles interactivos anidados. Se cambio a un enlace con estilo de boton.
+4. Las opciones de duracion no estaban agrupadas semanticamente. Se agruparon con fieldset y legend para que lectores de pantalla anuncien su proposito.
+5. Los controles interactivos no tenian un indicador de foco propio consistente. Se agrego un contorno visible para enlaces, botones y campos al navegar con teclado.
+6. El texto del enlace de tarifas usaba azul noche sobre verde ruta, con contraste insuficiente de 3.01:1. Se cambio a crema sobre verde ruta (4.93:1). En los estados hover con fondo naranja, el texto cambia a azul noche (7.20:1).
+7. Los marcadores de posicion de los campos dependian del color predeterminado del navegador. Se asigno gris asfalto sobre crema (5.57:1).
+
+Contraste de colores (formula WCAG; valores calculados y redondeados a dos decimales)
+Texto azul noche #14213D sobre crema #FAF6EF: 14.83:1 - Apto para texto normal (minimo 4.5:1).
+Texto gris asfalto #5B6470 sobre crema #FAF6EF: 5.57:1 - Apto para texto normal (minimo 4.5:1).
+Texto verde ruta #1E7A4F sobre crema #FAF6EF: 4.93:1 - Apto para texto normal (minimo 4.5:1).
+Texto azul noche #14213D sobre naranja pedal #F39A2B: 7.20:1 - Apto para texto normal (minimo 4.5:1).
+Texto verde ruta #1E7A4F sobre azul noche #14213D: 3.01:1 - No apto para texto normal.
+Texto naranja pedal #F39A2B sobre crema #FAF6EF: 2.06:1 - No apto para texto normal.
