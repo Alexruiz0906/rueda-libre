@@ -1,14 +1,26 @@
-http://127.0.0.1:5500/index.html
-protocol:http
-127.0.0.1:5500
-port:5500
-request:GET
-code:304
-GET /promociones.html
-    -code:404
-html:
-will be the structure of the webpage
-css:
-will make the webpage more attractive
-javascript
-will make the webpage more interactive
+Mi bitacora de Rueda Libre
+
+Esto es mi bitacora del proyecto. La hice para anotar lo que probé, lo que aprendí y las decisiones que tomé en la pagina. Me sirve para recordar cómo quedó todo y por qué lo hice así.
+
+1. Estructura del proyecto
+Creé la carpeta del proyecto y guardé la pagina principal y las páginas de reservas y tarifas. También dejé la hoja de estilos y la carpeta de imágenes.
+
+- index.html: pagina principal
+- paginas/reservas.html: formulario para reservar
+- paginas/tarifas.html: precios y paquetes
+- css/styles.css: estilos visuales
+- img/: imagenes del sitio
+
+2. Prueba del sitio en DevTools
+Abrí la pagina con Live Server y revisé la pestaña Network en DevTools. Allí pude ver cómo el navegador hace la petición para cargar la pagina.
+
+Datos que anoté:
+- URL completa: http://127.0.0.1:5500/index.html
+- Protocolo: http
+- Host: 127.0.0.1
+- Puerto: 5500
+- Ruta: /index.html
+- Metodo: GET
+- Codigo: 200
+
+El codigo 200 significa que la pagina cargó bien.
