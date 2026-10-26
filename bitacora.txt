@@ -1,32 +1,45 @@
-http://127.0.0.1:5500/index.html
-protocol:http
-127.0.0.1:5500
-port:5500
-request:GET
-code:304
-GET /promociones.html
-    -code:404
-html:
-Hara la estructura base de la pagina web
-css:
-Hara la pagina web mas atractiva visualmente
-javascript
-Hara la pagina web mas interactiva con el usuario
+Mi bitacora de Rueda Libre
 
-rutas
-origen | Destino | Ruta escrita
-index.html | Tarifas | paginas/tarifas.html
-index.html | Sección de tarifas de bicicletas | paginas/tarifas.html#tarifas-bicicletas
-index.html | Reservas | paginas/reservas.html
-index.html | Imagen de bicicleta | img/bicicleta.jpg
-index.html | Imagen de ruta | img/ruta.jpg
-index.html | Sección "Encuéntranos" (ancla) | #find-us
-index.html | Google Maps | https://maps.app.goo.gl/ooEiGXqQgTfTZhTu9
-index.html | Correo de contacto | mailto:info@ruedalibre.com
-paginas/reservas.html | Inicio | ../index.html
-paginas/reservas.html | Tarifas | tarifas.html
-paginas/reservas.html | Correo de contacto | mailto:info@ruedalibre.com
-paginas/tarifas.html | Inicio | ../index.html
-paginas/tarifas.html | Reservas | reservas.html
-paginas/tarifas.html | Reservar ahora | reservas.html
-paginas/tarifas.html | Correo de contacto | mailto:info@ruedalibre.com
+Esto es mi bitacora del proyecto. La hice para anotar lo que probé, lo que aprendí y las decisiones que tomé en la pagina. Me sirve para recordar cómo quedó todo y por qué lo hice así.
+
+1. Estructura del proyecto
+Creé la carpeta del proyecto y guardé la pagina principal y las páginas de reservas y tarifas. También dejé la hoja de estilos y la carpeta de imágenes.
+
+- index.html: pagina principal
+- paginas/reservas.html: formulario para reservar
+- paginas/tarifas.html: precios y paquetes
+- css/styles.css: estilos visuales
+- img/: imagenes del sitio
+
+2. Prueba del sitio en DevTools
+Abrí la pagina con Live Server y revisé la pestaña Network en DevTools. Allí pude ver cómo el navegador hace la petición para cargar la pagina.
+
+Datos que anoté:
+- URL completa: http://127.0.0.1:5500/index.html
+- Protocolo: http
+- Host: 127.0.0.1
+- Puerto: 5500
+- Ruta: /index.html
+- Metodo: GET
+- Codigo: 200
+
+El codigo 200 significa que la pagina cargó bien.
+
+3. Prueba de una ruta que no existe
+También probé entrar a una dirección que no existe, por ejemplo:
+- http://127.0.0.1:5500/promociones.html
+
+Resultado: 404.
+Esto quiere decir que la pagina no fue encontrada, porque esa ruta no está creada.
+
+4. Qué hace cada lenguaje
+HTML: estructura la pagina y organiza el contenido.
+CSS: da estilo, colores y diseño visual.
+JavaScript: hace la pagina más interactiva.
+
+5. Rutas del sitio
+Las paginas están relacionadas entre sí por enlaces:
+index.html -> Tarifas -> paginas/tarifas.html
+index.html -> Reservas -> paginas/reservas.html
+paginas/reservas.html -> Inicio -> ../index.html
+paginas/tarifas.html -> Reservas -> reservas.html
