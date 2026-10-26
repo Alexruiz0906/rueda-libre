@@ -143,3 +143,5 @@ Lo que mejoraría en un siguiente proyecto:
 
 En general, esta semana me dejó una base sólida para seguir aprendiendo HTML, CSS y la lógica de la programación web. Lo más importante fue entender que cada detalle cuenta
 
+https://alexruiz0906.github.io/rueda-libre/index.html
+
