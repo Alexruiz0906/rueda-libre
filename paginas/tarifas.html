@@ -3,21 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarifas</title>
+    <title>Rueda Libre | Tarifas</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../img/logo.ico" type="img/x-icon">
 </head>
 <body>
-    <nav>
+    <nav id="navegator" aria-label="Navegación principal">
         <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li>Tarifas</li>
-            <li><a href="reservas.html">Reservas</a></li>
+            <li class="logo-item">
+                <a href="../index.html" id="logo-link">
+                    <img src="../img/logo.jpg" alt="Logo de Rueda Libre" onmouseover="this.src='../img/logo-alt.jpg'" onmouseout="this.src='../img/logo.jpg'">
+                </a>
+            </li>
+            <li>
+                <a href="../index.html" id="home">Inicio</a>
+            </li>
+            <li>
+                <a href="tarifas.html" id="tarifas" aria-current="page">Tarifas</a>
+            </li>
+            <li>
+                <a href="reservas.html" id="reservas">Reservas</a>
+            </li>
         </ul>
+    </nav>
     <header>
         <h1>Tarifas de alquiler de bicicletas</h1>
         <p>A continuación, encontrarás nuestras tarifas para el alquiler de bicicletas en Medellín.</p>
     </header>
-    <main> 
-        <table border="1" id="tarifas-bicicletas">
+    <main id="tarifas-main">
+        <table id="tarifas-bicicletas">
             <caption><strong>Tarifa por persona incluye casco y candado</strong></caption>
             <thead>
                 <tr>
@@ -29,28 +43,27 @@
             </thead>
             <tbody>
                 <tr>
-                    <td scope="col">Urbana</td>
-                    <td scope="row">$10.000 COP</td>
-                    <td scope="row">$30.000 COP</td>
-                    <td scope="row">$50.000 COP</td>
+                    <th scope="row">Urbana</th>
+                    <td>$10.000 COP</td>
+                    <td>$30.000 COP</td>
+                    <td>$50.000 COP</td>
                 </tr>
                 <tr>
-                    <td scope="col">Montaña</td>
-                    <td scope="row">$15.000 COP</td>
-                    <td scope="row">$45.000 COP</td>
-                    <td scope="row">$70.000 COP</td>
+                    <th scope="row">Montaña</th>
+                    <td>$15.000 COP</td>
+                    <td>$45.000 COP</td>
+                    <td>$70.000 COP</td>
                 </tr>
                 <tr>
-                    <td scope="col">Eléctrica</td>
-                    <td scope="row">$25.000 COP</td>
-                    <td scope="row">$70.000 COP</td>
-                    <td scope="row">$110.000 COP</td>
+                    <th scope="row">Eléctrica</th>
+                    <td>$25.000 COP</td>
+                    <td>$70.000 COP</td>
+                    <td>$110.000 COP</td>
                 </tr>
             </tbody>
         </table>
-        <br>
-        <table border="1">
-            <caption><strong>Tarifa por persona incluye casco y candado</strong></caption>
+        <table id="tarifas-recorridos">
+            <caption><strong>Precio por persona y detalles de los recorridos</strong></caption>
             <thead>
                 <tr>
                     <th scope="col">Recorrido</th>
@@ -62,38 +75,43 @@
             </thead>
             <tbody>
                 <tr>
-                    <td scope="col">Rio y parques</td>
-                    <td scope="row">12 km</td>
-                    <td scope="row">2 horas</td>
-                    <td scope="row">Fácil</td>
-                    <td scope="row">$45.000 COP</td>
+                    <th scope="row">Río y parques</th>
+                    <td>12 km</td>
+                    <td>2 horas</td>
+                    <td>Fácil</td>
+                    <td>$45.000 COP</td>
                 </tr>
                 <tr>
-                    <td scope="col">Sabores de barrio</td>
-                    <td scope="row">18 km</td>
-                    <td scope="row">3 horas</td>
-                    <td scope="row">Medio</td>
-                    <td scope="row">$60.000 COP</td>
+                    <th scope="row">Sabores de barrio</th>
+                    <td>18 km</td>
+                    <td>3 horas</td>
+                    <td>Medio</td>
+                    <td>$60.000 COP</td>
                 </tr>
                 <tr>
-                    <td scope="col">Reto las Palmas</td>
-                    <td scope="row">25 km</td>
-                    <td scope="row">4 horas</td>
-                    <td scope="row">Dificil</td>
-                    <td scope="row">$85.000 COP</td>
+                    <th scope="row">Reto Las Palmas</th>
+                    <td>25 km</td>
+                    <td>4 horas</td>
+                    <td>Difícil</td>
+                    <td>$85.000 COP</td>
                 </tr>
             </tbody>
         </table>
-        <i>*Las tarifas incluyen casco y candado. Los recorridos salen sábados y domingos a las 7:00 a. m. Qué llevar: ropa cómoda, agua, protector solar y documento de identidad.</i>
-        <br
-        <button><a href="reservas.html">Reservar ahora</a></button>
+        <p id="nota-tarifas"><i>*Las tarifas incluyen casco y candado. Los recorridos salen sábados y domingos a las 7:00 a. m. Qué llevar: ropa cómoda, agua, protector solar y documento de identidad.</i></p>
+        <a id="boton-reservar" href="reservas.html">Reservar ahora</a>
     </main>
     <footer>
         <p>&copy; 2026 Rueda Libre. Todos los derechos reservados. Riwi.</p>
         <dl>
-            <dt>Contacto:</dt>
+            <dt>Contacto</dt>
+            <dt>Email:</dt>
             <dd><a href="mailto:info@ruedalibre.com">info@ruedalibre.com</a></dd>
+            <dt>Horario:</dt>
+            <dd>Lunes a viernes: 8:00 a.m. - 6:00 p.m.</dd>
+            <dd>Sábados y domingos: 9:00 a.m. - 5:00 p.m.</dd>
         </dl>
+
     </footer>
+    <a class="whatsapp-link" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 </body>
 </html>
