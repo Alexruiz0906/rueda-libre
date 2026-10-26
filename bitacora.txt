@@ -1,52 +1,145 @@
-http://127.0.0.1:5500/index.html
-protocol:http
-127.0.0.1:5500
-port:5500
-request:GET
-code:304
-GET /promociones.html
-    -code:404
-html:
-Hara la estructura base de la pagina web
-css:
-Hara la pagina web mas atractiva visualmente
-javascript
-Hara la pagina web mas interactiva con el usuario
+Mi bitacora de Rueda Libre
 
-rutas
-origen | Destino | Ruta escrita
-index.html | Tarifas | paginas/tarifas.html
-index.html | Sección de tarifas de bicicletas | paginas/tarifas.html#tarifas-bicicletas
-index.html | Reservas | paginas/reservas.html
-index.html | Imagen de bicicleta | img/bicicleta.jpg
-index.html | Imagen de ruta | img/ruta.jpg
-index.html | Sección "Encuéntranos" (ancla) | #find-us
-index.html | Google Maps | https://maps.app.goo.gl/ooEiGXqQgTfTZhTu9
-index.html | Correo de contacto | mailto:info@ruedalibre.com
-paginas/reservas.html | Inicio | ../index.html
-paginas/reservas.html | Tarifas | tarifas.html
-paginas/reservas.html | Correo de contacto | mailto:info@ruedalibre.com
-paginas/tarifas.html | Inicio | ../index.html
-paginas/tarifas.html | Reservas | reservas.html
-paginas/tarifas.html | Reservar ahora | reservas.html
-paginas/tarifas.html | Correo de contacto | mailto:info@ruedalibre.com
+Esto es mi bitacora del proyecto. La hice para anotar lo que probé, lo que aprendí y las decisiones que tomé en la pagina. Me sirve para recordar cómo quedó todo y por qué lo hice así.
 
-BITACORA DE AUDITORIA DE ACCESIBILIDAD
-Fecha: 2026-10-23
+1. Estructura del proyecto
+Creé la carpeta del proyecto y guardé la pagina principal y las páginas de reservas y tarifas. También dejé la hoja de estilos y la carpeta de imágenes.
 
-Hallazgos y correcciones
-1. El texto alternativo de las imagenes del logo y del mapa no describia con precision su funcion. Se ajusto el alt del logo a "Logo de Rueda Libre" y el del mapa a "Mapa de rutas para recorrer Medellin en bicicleta". Las imagenes informativas de bicicleta y mapa tienen texto alternativo.
-2. La navegacion no tenia un nombre accesible para identificar su region. Se agrego aria-label="Navegacion principal" en las tres paginas.
-3. En Inicio, un enlace estaba anidado dentro de un boton, creando controles interactivos anidados. Se cambio a un enlace con estilo de boton.
-4. Las opciones de duracion no estaban agrupadas semanticamente. Se agruparon con fieldset y legend para que lectores de pantalla anuncien su proposito.
-5. Los controles interactivos no tenian un indicador de foco propio consistente. Se agrego un contorno visible para enlaces, botones y campos al navegar con teclado.
-6. El texto del enlace de tarifas usaba azul noche sobre verde ruta, con contraste insuficiente de 3.01:1. Se cambio a crema sobre verde ruta (4.93:1). En los estados hover con fondo naranja, el texto cambia a azul noche (7.20:1).
-7. Los marcadores de posicion de los campos dependian del color predeterminado del navegador. Se asigno gris asfalto sobre crema (5.57:1).
+- index.html: pagina principal
+- paginas/reservas.html: formulario para reservar
+- paginas/tarifas.html: precios y paquetes
+- css/styles.css: estilos visuales
+- img/: imagenes del sitio
 
-Contraste de colores (formula WCAG; valores calculados y redondeados a dos decimales)
-Texto azul noche #14213D sobre crema #FAF6EF: 14.83:1 - Apto para texto normal (minimo 4.5:1).
-Texto gris asfalto #5B6470 sobre crema #FAF6EF: 5.57:1 - Apto para texto normal (minimo 4.5:1).
-Texto verde ruta #1E7A4F sobre crema #FAF6EF: 4.93:1 - Apto para texto normal (minimo 4.5:1).
-Texto azul noche #14213D sobre naranja pedal #F39A2B: 7.20:1 - Apto para texto normal (minimo 4.5:1).
-Texto verde ruta #1E7A4F sobre azul noche #14213D: 3.01:1 - No apto para texto normal.
-Texto naranja pedal #F39A2B sobre crema #FAF6EF: 2.06:1 - No apto para texto normal.
+2. Prueba del sitio en DevTools
+Abrí la pagina con Live Server y revisé la pestaña Network en DevTools. Allí pude ver cómo el navegador hace la petición para cargar la pagina.
+
+Datos que anoté:
+- URL completa: http://127.0.0.1:5500/index.html
+- Protocolo: http
+- Host: 127.0.0.1
+- Puerto: 5500
+- Ruta: /index.html
+- Metodo: GET
+- Codigo: 200
+
+El codigo 200 significa que la pagina cargó bien.
+
+3. Prueba de una ruta que no existe
+También probé entrar a una dirección que no existe, por ejemplo:
+- http://127.0.0.1:5500/promociones.html
+
+Resultado: 404.
+Esto quiere decir que la pagina no fue encontrada, porque esa ruta no está creada.
+
+4. Qué hace cada lenguaje
+HTML: estructura la pagina y organiza el contenido.
+CSS: da estilo, colores y diseño visual.
+JavaScript: hace la pagina más interactiva.
+
+5. Rutas del sitio
+Las paginas están relacionadas entre sí por enlaces:
+index.html -> Tarifas -> paginas/tarifas.html
+index.html -> Reservas -> paginas/reservas.html
+paginas/reservas.html -> Inicio -> ../index.html
+paginas/tarifas.html -> Reservas -> reservas.html
+
+Esto ayuda a navegar mejor entre las secciones.
+
+6. Justificación de algunos elementos
+Reemplacé varios elementos por etiquetas semánticas como nav, header, main, section y footer porque tienen un significado más claro para la estructura de la pagina. Eso ayuda a que el sitio sea más ordenado y más fácil de entender.
+
+Algunos div y span se quedaron porque solo sirven para organizar la visualización o darle estilo. No aportan contenido semántico, pero sí ayudan a que la pagina se vea bien. Por eso su uso está justificado.
+
+7. Elección de controles del formulario
+En el formulario decidí usar diferentes tipos de entrada según la información que necesitaba el cliente.
+
+Nombre completo: usé un input tipo texto porque es una respuesta libre.
+Tipo de documento y tipo de bicicleta: usé select porque son opciones predefinidas y el usuario debe elegir una sola.
+Comentarios: usé textarea porque el cliente puede escribir una respuesta más larga y detallada.
+
+También usé otros controles adecuados para cada dato: email para correos, date para fechas, number para cantidades y checkbox para aceptar políticas.
+
+En resumen el formulario quedó más claro y más fácil de usar porque cada campo está pensado para el tipo de información que pide.
+En DevTools (Styles y Computed), comprueba qué propiedades hereda un párrafo desde el cuerpo. Registra en la bitácora una propiedad que se hereda y una que no, comprobadas en tu sitio.
+
+8. Mapa de uso de color y contraste
+En este proyecto usé una paleta de colores clara y legible para mantener la identidad del sitio y también cumplir con una buena accesibilidad.
+
+Texto principal: azul noche (#14213D)
+Fondo general: crema (#FAF6EF)
+Títulos y textos importantes: azul noche sobre fondo crema
+Botones principales: verde ruta (#1E7A4F) con texto crema (#FAF6EF)
+Botones en hover: naranja pedal (#F39A2B) con texto azul noche (#14213D)
+Enlaces: verde ruta para el estado normal y azul noche para hover o foco
+Fondo de secciones destacadas: verde ruta con texto crema
+Texto secundario e información complementaria: gris asfalto (#5B6470) sobre fondo crema
+
+Clasificación de combinaciones:
+Azul noche sobre crema: apta para texto normal
+Gris asfalto sobre crema: apta para texto normal
+Verde ruta sobre crema: apta para texto normal
+Azul noche sobre naranja: apta para texto normal
+Verde ruta sobre azul noche: no apta para texto normal
+Naranja sobre crema: no apta para texto normal
+
+Esto me ayudó a decidir qué combinaciones usar en texto, botones, fondos y enlaces para que fueran legibles y agradables visualmente.
+
+9. Hallazgos de accesibilidad y correcciones
+La bitácora registra al menos cinco hallazgos de accesibilidad y cómo los corregí
+
+El texto alternativo del logo y del mapa no describía bien su función. Lo corregí para que fuera más claro: "Logo de Rueda Libre" y "Mapa de rutas para recorrer Medellín en bicicleta".
+La navegación no tenía un nombre claro para lectores de pantalla. Agregué aria-label="Navegación principal" en las páginas principales.
+En la portada había un enlace dentro de un botón, lo cual no es adecuado. Lo cambié para que fuera un enlace con estilo de botón, sin anidar controles.
+Las opciones de duración del alquiler estaban sueltas. Las agrupé con fieldset y legend para que la intención del grupo fuera más clara.
+Los enlaces y botones no tenían un foco visible claro al navegar con teclado. Añadí un contorno visible para mejorar la accesibilidad.
+El contraste del texto en algunos enlaces no era suficiente. Ajusté los colores para que fueran más legibles, especialmente en los botones y enlaces.
+
+Con estos cambios, la pagina quedó más fácil de usar para personas que navegan con teclado o con lectores de pantalla.
+
+10. Herencia de CSS en DevTools
+En DevTools revisé un párrafo del sitio para comprobar qué propiedades hereda desde el body y cuáles no.
+
+Propiedad que sí se hereda:
+- color: el body tiene color: var(--azul-noche); y el párrafo lo hereda, por eso el texto del párrafo aparece en azul oscuro sin que lo declare directamente.
+- font-family: el body tiene font-family: 'Poppins', sans-serif; y el párrafo también la hereda, por eso usa la misma fuente del sitio.
+
+Propiedad que no se hereda:
+- background-color: el body tiene background-color: var(--crema), pero el párrafo no lo hereda, porque el fondo de la página no se aplica automáticamente al texto o al bloque del párrafo.
+
+Esto lo comprobé en Styles y Computed: el párrafo toma el estilo del body en algunas propiedades, pero no en todas. La herencia ayuda a ahorrar código y mantener el diseño uniforme.
+
+11. En esta semana trabajé en varios MiniRetos que me ayudaron a aprender el proceso real de crear un sitio web.
+
+MiniReto 1: Preparé las carpetas y el archivo index.html. También probé la página con Live Server y anoté los códigos 200 y 404.
+
+MiniReto 2: Organicé el contenido de Inicio con textos, imágenes, listas y enlaces.
+
+MiniReto 3: Creé la página de Tarifas con tablas de precios y enlaces que conectan las páginas.
+
+MiniReto 4: Conecté Inicio, Tarifas y Reservas con un menú común y agregué un pie de página.
+
+MiniReto 5: Organicé las páginas usando etiquetas como header, nav, main, section y footer. También expliqué los div y span que dejé.
+
+MiniReto 6: Armé el formulario y escogí los campos según la información que debía ingresar el cliente.
+
+MiniReto 7: Agregué reglas para revisar los datos y probé navegar por el formulario con el teclado.
+
+MiniReto 8: Revisé varios detalles de accesibilidad, anoté el mapa de colores y preparé el sitio para publicarlo.
+
+MiniReto 9: Usé una hoja de estilos con colores, fuentes y variables para darle una apariencia común a las páginas.
+
+MiniReto 10: Estilicé enlaces, botones y campos para mostrar sus estados al pasar el mouse o usar el teclado.
+
+MiniReto 11: Organicé el tamaño y el espacio de las tarjetas, tablas y formulario con CSS.
+
+MiniReto 12:Agregué la etiqueta “Nuevo” y el enlace de WhatsApp, y revisé el sitio antes de cerrar el proyecto.
+
+Lo que mejoraría en un siguiente proyecto:
+- hacer la estructura HTML más limpia desde el inicio
+- revisar accesibilidad antes de terminar el diseño
+- practicar más el uso de DevTools para detectar errores rápidamente
+- mejorar la organización del código CSS para que sea más fácil mantenerlo
+
+En general, esta semana me dejó una base sólida para seguir aprendiendo HTML, CSS y la lógica de la programación web. Lo más importante fue entender que cada detalle cuenta
+
