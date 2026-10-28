@@ -33,19 +33,50 @@ header p, .subtitles {
 }
 .grid-front{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
 .tarjeta-front{
-    justify-content: center;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
     text-align: center;
-    border-radius: 6px;
-    box-shadow: 0 2px 2px solid var(--azul-noche);
+    border-radius: 2px;
+    box-shadow: 0 1px 1px solid var(--azul-noche);
+
+}
+.grid-front > div.tarjeta-front {
+ flex-wrap: wrap;
+}
+.grid-front > div.tarjeta-front > h2 {
+    flex-basis: 100%;
+}
+.tarjeta-rutas {
+    flex: 1 1 0;
+    background-color: var(--crema);
+    box-shadow: 0 0.25rem 0.75rem rgba(20, 33, 61, 0.16);
 }
 .tarjeta-front img{
-    max-width: 100%;
-    padding: 0.5rem;
+    width: 100%;
 }
+.tarjeta-rutas img {
+    display: block;
+    width: 100%;
+    height: 12rem;
+    padding: 0.5rem;
+    object-fit: cover;
+}
+.tarjeta-rutas h3, .tarjeta-rutas p {
+    padding: 0.75rem;
+}
+.tarjeta-rutas p {
+    padding-bottom: 0.75rem;
+}
+
+
+
+
+
 #main-index {
     flex: 3;
     min-width: 0;
@@ -305,6 +336,10 @@ header {
 }
 
 @media (max-width: 47.5rem) {
+    /* Apila las columnas en pantallas estrechas para conservar espacio de lectura. */
+    .grid-front {
+        grid-template-columns: 1fr;
+    }
     .index-layout {
         flex-direction: column;
         padding: 1rem;
