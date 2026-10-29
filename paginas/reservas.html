@@ -10,12 +10,11 @@
 </head>
 
 <body>
-    <nav id="navegator" aria-label="Navegación principal">
+    <nav class="navegator" aria-label="Navegación principal">
         <ul>
             <li class="logo-item">
                 <a href="../index.html" id="logo-link">
-                    <img src="../img/logo.jpg" alt="Logo de Rueda Libre" onmouseover="this.src='../img/logo-alt.jpg'"
-                        onmouseout="this.src='../img/logo.jpg'">
+                    <img src="../img/logo.jpg" alt="Logo de Rueda Libre" onmouseover="this.src='../img/logo-alt.jpg'"onmouseout="this.src='../img/logo.jpg'" class="logo-rueda">
                 </a>
             </li>
             <li>
@@ -36,7 +35,7 @@
     <main id="main">
         <form action="#" method="post" id="reservation-form" class="reservation-form">
             <fieldset class="grid-form-info">
-                <legend id="reserv">RESERVACIÓN</legend>
+                <legend id="reserv">INFORMACION DE CONTACTO</legend>
                 <div class="form-info">
                     <div id="form-name">
                         <label for="name">Nombre completo</label>
@@ -68,6 +67,7 @@
                 </div>
             </fieldset>
             <fieldset class="grid-form-reserv">
+                <legend id="reserv">INFORMACION DE RESERVA</legend>
                 <div class="form-reserv">
                     <div id="form-bike">
                         <label for="bike">Tipo de bicicleta</label>
