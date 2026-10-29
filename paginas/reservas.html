@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,14 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="../img/logo.ico" type="img/x-icon">
 </head>
+
 <body>
     <nav id="navegator" aria-label="Navegación principal">
         <ul>
             <li class="logo-item">
                 <a href="../index.html" id="logo-link">
-                    <img src="../img/logo.jpg" alt="Logo de Rueda Libre" onmouseover="this.src='../img/logo-alt.jpg'" onmouseout="this.src='../img/logo.jpg'">
+                    <img src="../img/logo.jpg" alt="Logo de Rueda Libre" onmouseover="this.src='../img/logo-alt.jpg'"
+                        onmouseout="this.src='../img/logo.jpg'">
                 </a>
             </li>
             <li>
@@ -31,10 +34,10 @@
         <p>Realiza tu reserva de bicicletas en Medellín a través de nuestro correo.</p>
     </header>
     <main id="main">
-        <form action="#" method="post" id="reservation-form">
-            <fieldset>
+        <form action="#" method="post" id="reservation-form" class="reservation-form">
+            <fieldset class="grid-form-info">
                 <legend id="reserv">RESERVACIÓN</legend>
-                <div id="form-fields">
+                <div class="form-info">
                     <div id="form-name">
                         <label for="name">Nombre completo</label>
                         <input type="text" id="name" name="user_name" placeholder="Pedro Pérez" required minlength="3">
@@ -46,7 +49,8 @@
                             <option value="CC">Cédula de ciudadanía</option>
                         </select>
                         <label for="document">Documento de identidad</label>
-                        <input type="text" inputmode="numeric" pattern="[0-9]{6,10}" id="document" name="user_document" placeholder="Ingresa número de documento" required minlength="6" maxlength="10">
+                        <input type="text" inputmode="numeric" pattern="[0-9]{6,10}" id="document" name="user_document"
+                            placeholder="Ingresa número de documento" required minlength="6" maxlength="10">
                     </div>
                     <div id="form-email">
                         <label for="email">Correo electrónico</label>
@@ -54,12 +58,17 @@
                     </div>
                     <div id="form-number">
                         <label for="number-phone">Número de teléfono</label>
-                        <input type="tel" inputmode="numeric" pattern="3[0-9]{9}" id="number-phone" name="number_phone" placeholder="3051262612" minlength="10" maxlength="10">
+                        <input type="tel" inputmode="numeric" pattern="3[0-9]{9}" id="number-phone" name="number_phone"
+                            placeholder="3051262612" minlength="10" maxlength="10">
                     </div>
                     <div id="form-date">
                         <label for="date">Fecha de reserva</label>
                         <input type="date" min="2026-11-01" max="2026-12-31" id="date" name="reservation_date" required>
                     </div>
+                </div>
+            </fieldset>
+            <fieldset class="grid-form-reserv">
+                <div class="form-reserv">
                     <div id="form-bike">
                         <label for="bike">Tipo de bicicleta</label>
                         <select id="bike" name="bike_type" required>
@@ -92,23 +101,27 @@
                             <label for="hours-8">
                                 <input type="checkbox" name="duration[]" id="hours-8" value="8h">Día completo (8 h)
                             </label>
-                        </fieldset>
-                    </div>
+                    </fieldset>
                     <div id="form-comments">
                         <label for="comments">Comentarios (opcional, máximo 300 caracteres)</label>
-                        <textarea id="comments" name="comments" rows="4" maxlength="300" placeholder="Agrega algún detalle para tu reserva"></textarea>
+                        <textarea id="comments" name="comments" rows="4" maxlength="300"
+                            placeholder="Agrega algún detalle para tu reserva"></textarea>
                     </div>
                     <div id="form-policies">
-                        <span class="form-label">Políticas de alquiler</span>
-                        <label class="policy-option" for="accept-policies">
-                            <input type="checkbox" id="accept-policies" name="accept_policies" required>
-                            Acepto las políticas de alquiler.
-                        </label>
+                        <div class="policies">
+                            <span class="form-label">Políticas de alquiler</span>
+                            <label class="policy-option" for="accept-policies">
+                                <input type="checkbox" id="accept-policies" name="accept_policies" required>
+                                Acepto las políticas de alquiler.</input>
+                            </label>
+                        </div>
+                        <button type="submit" id="boton-enviar">Enviar</button>
                     </div>
-                    <button type="submit" id="boton-enviar">Enviar</button>
+
                 </div>
             </fieldset>
         </form>
+
     </main>
     <footer>
         <ul>
@@ -130,4 +143,5 @@
     </footer>
     <a class="whatsapp-link" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 </body>
+
 </html>
