@@ -1,759 +1,122 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root{
+:root {
     --verde-ruta: #1E7A4F;
     --naranja-pedal: #F39A2B;
     --azul-noche: #14213D;
     --crema: #FAF6EF;
     --gris-asfalto: #5B6470;
-}
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--crema);
-    color: var(--azul-noche);
-    padding-bottom: 5rem;
+    --bs-body-bg: var(--crema);
+    --bs-body-color: var(--azul-noche);
+    --bs-success: var(--verde-ruta);
+    --bs-success-rgb: 30, 122, 79;
+    --bs-border-color: var(--gris-asfalto);
+    --bs-focus-ring-color: rgba(30, 122, 79, 0.25);
 }
 
-h1, h2, h3 {
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Montserrat', sans-serif;
 }
 
-.header p, .subtitles {
+.font-open-sans {
     font-family: 'Open Sans', sans-serif;
 }
-/*INDEX*/
-.body-front{
-    padding: 2rem 1rem;
-    margin: 0 auto;
-}
-.grid-front{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.tarjeta-front{
-    display: flex;
-    gap: 0.5rem;
-    justify-content: space-between;
-    text-align: center;
-    border-radius: 2px;
-    box-shadow: 0 1px 1px solid var(--azul-noche);
 
-}
-.grid-front > div.tarjeta-front {
- flex-wrap: wrap;
-}
-.grid-front > div.tarjeta-front > h2 {
-    flex-basis: 100%;
-}
-.tarjeta-rutas {
-    flex: 1 1 0;
-    background-color: var(--crema);
-    box-shadow: 0 0.25rem 0.75rem rgba(20, 33, 61, 0.16);
-}
-.tarjeta-front img{
-    width: 100%;
-}
-.tarjeta-rutas img {
-    display: block;
-    width: 100%;
-    height: 12rem;
-    padding: 0.5rem;
-    object-fit: cover;
-}
-.tarjeta-rutas h3, .tarjeta-rutas p {
-    padding: 0.75rem;
-}
-.tarjeta-rutas p {
-    padding-bottom: 0.75rem;
-}
-#main-index {
-    flex: 3;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-.index-layout{
-    display: flex;
-    align-items: stretch;
-    gap: 1.5rem;
-    width: min(75rem, 100%);
-    margin: 0 auto;
-    padding: 1.5rem;
-}
-aside{
-    flex: 1;
-    min-width: 13.75rem;
-    align-self: flex-start;
-    padding: 1.5rem;
-    border-left: 0.25rem solid var(--verde-ruta);
-    border-radius: 0.625rem;
-    background-color: var(--crema);
-    color: var(--azul-noche);
-}
-#services{
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    padding: 1.5rem;
-    border-radius: 0.625rem;
-    background-color: var(--crema);
-    color: var(--azul-noche);
-    box-shadow: 0 0.25rem 0.9375rem rgba(20, 33, 61, 0.1);
-}
-#services-box{
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-}
-#services h2{
-    color: var(--azul-noche);
-}
-#services article{
-    flex: 1;
-    min-width: 0;
-    padding: 0.5rem 1.25rem;
-}
-#services article + article{
-    border-left: 0.125rem solid var(--verde-ruta);
-}
-.subtitles{
-    text-align: center;
-    margin-bottom: 0.875rem;
-    color: var(--azul-noche);
-}
-.service img{
-    display: block;
-    width: 100%;
-    height: 11.25rem;
-    margin-bottom: 0.875rem;
-    border-radius: 0.5rem;
-    object-fit: cover;
-}
-.service p{
-    line-height: 1.6;
-}
-#bike-rental{
-    text-align: center;
-}
-#boton-tarifas, #boton-reservar, #boton-enviar {
-    display: inline-block;
-    padding: 0.75em 1.5em;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: var(--verde-ruta);
-    color: var(--crema);
-    text-decoration: none;
-    font: inherit;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 0.25rem 0.75rem rgba(20, 33, 61, 0.16);
-    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+a {
+    color: var(--verde-ruta);
 }
 
-#boton-enviar{
-    width: 120px;
-    padding: 1rem;
+a:hover {
+    color: var(--azul-noche);
 }
 
-#boton-tarifas {
-    margin-top: 1rem;
+.btn-success {
+    --bs-btn-color: var(--crema);
+    --bs-btn-bg: var(--verde-ruta);
+    --bs-btn-border-color: var(--verde-ruta);
+    --bs-btn-hover-color: var(--azul-noche);
+    --bs-btn-hover-bg: var(--naranja-pedal);
+    --bs-btn-hover-border-color: var(--naranja-pedal);
+    --bs-btn-active-color: var(--azul-noche);
+    --bs-btn-active-bg: var(--naranja-pedal);
+    --bs-btn-active-border-color: var(--naranja-pedal);
 }
-#boton-tarifas:hover, #boton-reservar:hover, #boton-enviar:hover {
+
+.card {
+    --bs-card-color: var(--azul-noche);
+    --bs-card-bg: var(--crema);
+}
+
+.table {
+    --bs-table-color: var(--azul-noche);
+    --bs-table-bg: var(--crema);
+    --bs-table-border-color: var(--gris-asfalto);
+}
+
+.table thead th {
     background-color: var(--naranja-pedal);
     color: var(--azul-noche);
-    box-shadow: 0 0.375rem 0.875rem rgba(20, 33, 61, 0.2);
-    transform: translateY(-0.125rem);
 }
-#tarifas-main {
-    width: 90%;
-    margin: 1.875rem auto;
+
+.form-control,
+.form-select {
     color: var(--azul-noche);
-}
-#tarifas-bicicletas, #tarifas-recorridos {
-    width: 100%;
-    margin-bottom: 1.875rem;
-    border-collapse: collapse;
     background-color: var(--crema);
+    border-color: var(--gris-asfalto);
 }
-#tarifas-bicicletas caption, #tarifas-recorridos caption {
-    padding: 0.75rem;
-    color: var(--azul-noche);
-    text-align: left;
-}
-#tarifas-bicicletas th, #tarifas-bicicletas td, #tarifas-recorridos th, #tarifas-recorridos td {
-    padding: 0.75rem;
-    border: 0.0625rem solid var(--gris-asfalto);
-    text-align: left;
-}
-#tarifas-bicicletas thead, #tarifas-recorridos thead {
-    background-color: var(--naranja-pedal);
-}
-#nota-tarifas {
-    margin-bottom: 1.25rem;
+
+.form-control::placeholder {
     color: var(--gris-asfalto);
 }
-#how-to-rent{
-    padding: 1.5rem;
-    border-radius: 0.625rem;
+
+.form-check-input:checked {
     background-color: var(--verde-ruta);
-    color: var(--crema);
-    box-shadow: 0 0.25rem 0.9375rem rgba(20, 33, 61, 0.1);
-}
-
-#how-to-rent h2{
-    margin-bottom: 0.875rem;
-}
-#how-to-rent ol{
-    padding-left: 1.5rem;
-    line-height: 1.8;
-}
-#about-us, #find-us{
-    padding: 0.5rem 0 1.25rem;
-}
-#find-us{
-    padding-top: 1.25rem;
-    border-top: 0.0625rem solid var(--gris-asfalto);
-}
-aside h2 {
-    margin-bottom: 0.5rem;
-    font-size: 1.15rem;
-}
-aside p {
-    line-height: 1.6;
-}
-#electric-bikes {
-    position: relative;
-    margin-top: 1rem;
-    padding: 1rem;
-    border: 0.0625rem solid rgba(91, 100, 112, 0.3);
-    border-radius: 0.625rem;
-    background-color: var(--crema);
-    box-shadow: 0 0.25rem 0.9375rem rgba(20, 33, 61, 0.1);
-}
-#electric-bikes h2 {
-    padding-right: 3.75rem;
-}
-.new-badge {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    padding: 0.25rem 0.625rem;
-    border-radius: 999px;
-    background-color: var(--naranja-pedal);
-    color: var(--azul-noche);
-    font-size: 0.75rem;
-    font-weight: bold;
-}
-.electric-bike-image {
-    height: 10rem;
-    margin: 0.75rem 0;
-    overflow: hidden;
-}
-.electric-bike-image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 0.5rem;
-}
-
-.navegator {
-    background-color: var(--crema);
-    display: flex;
-    width: 100%;
-}
-
-.navegator ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3.125rem;
-    width: 100%;
-    list-style: none;
-}
-.navegator li {
-    flex: 1;
-    height: 100%;
-    transition: all 0.5s ease;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-.navegator li.logo-item {
-    flex: 0 0 11.25rem;
-}
-.navegator li.logo-item a {
-    padding: 0;
-    overflow: hidden;
-}
-.navegator li.logo-item > img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-}
-.navegator li a {
-    color: var(--verde-ruta);
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.5s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-.navegator li a[aria-current="page"] {
-    background-color: var(--naranja-pedal);
-    color: var(--azul-noche);
-}
-.navegator li:hover{
-    background-color: var(--verde-ruta);
-}
-.navegator li:hover a{
-    color: var(--crema);
-    
-}
-.navegator li a[aria-current="page"]:hover {
-    background-color: var(--verde-ruta);
-    color: var(--crema);
-}
-@media (max-width: 768px) {
-    .navegator ul {
-        flex-direction: column;
-        height: auto;
-    }
-    .navegator li {
-        flex: 0 0 3.125rem;
-        width: 100%;
-    }
-    .navegator li.logo-item {
-        flex: 0 0 3.125rem;
-        width: auto;
-    }
-    .logo-rueda{
-        width: 100%;
-        object-fit: contain;
-    }
-    .service img{
-        height: auto;
-        object-fit: contain;
-    }
-    .electric-bike-image{
-        height: auto;
-        object-fit: contain;
-    }
-    .tarjeta-rutas img{
-        height: auto;
-        object-fit: cover;
-    }
-}
-@media (min-width: 768px) {
-    .body-front {
-        width: min(75rem, 100%);
-    }
-    .grid-front {
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        align-items: stretch;
-        gap: 1.5rem;
-    }
-    .grid-front > .tarjeta-front:last-child,
-    .tarjeta-rutas {
-        min-width: 0;
-    }
-    #services-box {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    #services article,
-    aside {
-        min-width: 0;
-    }
-    .flota {
-        width: min(75rem, 100%);
-    }
-    #tarifas-main {
-        width: min(90%, 75rem);
-    }
-    #tarifas-bicicletas,
-    #tarifas-recorridos {
-        table-layout: fixed;
-    }
-    #tarifas-bicicletas th:first-child {
-        width: 30%;
-    }
-    #tarifas-bicicletas th:nth-child(2) {
-        width: 16%;
-    }
-    #tarifas-bicicletas th:nth-child(3),
-    #tarifas-bicicletas th:nth-child(4) {
-        width: 27%;
-    }
-    #tarifas-recorridos th:first-child {
-        width: 27%;
-    }
-    #tarifas-recorridos th:nth-child(2),
-    #tarifas-recorridos th:nth-child(3),
-    #tarifas-recorridos th:nth-child(4) {
-        width: 14%;
-    }
-    #tarifas-recorridos th:nth-child(5) {
-        width: 31%;
-    }
-    #tarifas-bicicletas th,
-    #tarifas-bicicletas td,
-    #tarifas-recorridos th,
-    #tarifas-recorridos td {
-        padding: 0.5rem;
-        overflow-wrap: anywhere;
-    }
-    .grid-front > .tarjeta-front:first-child > img {
-        display: block;
-        width: 100%;
-        height: 18rem;
-        object-fit: contain;
-    }
-    .navegator li.logo-item img,
-    .tarjeta-rutas img,
-    .service img,
-    .electric-bike-image img,
-    .tarjeta img {
-        display: block;
-        width: 100%;
-        object-fit: contain;
-    }
-    .tarjeta-rutas img {
-        height: 12rem;
-    }
-    .service img {
-        height: 11.25rem;
-    }
-    .electric-bike-image img {
-        height: 100%;
-    }
-    .tarjeta img {
-        height: 12.5rem;
-    }
-}
-.header {
-    display: flex;
-    color: var(--crema);
-    padding: 1.25rem;
-    text-align: center;
-    box-shadow: 0 0.125rem 0.5rem rgba(20, 33, 61, 0.12);
-}
-
-@media (max-width: 768px) {
-    .grid-front {
-        grid-template-columns: 1fr;
-    }
-    .index-layout {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    #services-box {
-        display: flex;
-        flex-direction: column;
-    }
-    #services article {
-        padding: 1.25rem 0;
-    }
-    #services article + article {
-        border-left: none;
-        border-top: 0.125rem solid var(--verde-ruta);
-    }
-    aside {
-        min-width: 0;
-    }
-}
-.reservation-form {
-    margin: 1.5rem 2rem 2.5rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-@media (max-width: 768px) {
-    .reservation-form {
-        grid-template-columns: minmax(0, 1fr);
-        margin: 1.5rem 1rem 2rem;
-    }
-}
-#reserv{
-    padding: 0 0.5rem;
-    font-weight: bold;
-    color: var(--azul-noche);
-}
-.grid-form-info {
-    display: flex;
-    width: 100%;
-    gap:  2rem;
-    border: none;
-    border-radius: 1rem;
-    padding: 1.75rem;
-    background-color: var(--crema);
-    color: var(--azul-noche);
-    box-shadow: 0 0.5rem 1.5rem rgba(20, 33, 61, 0.12);
-}
-.grid-form-reserv {
-    display: flex;
-    width: 100%;
-    gap:  2rem;
-    border: none;
-    border-radius: 1rem;
-    padding: 1.75rem;
-    background-color: var(--crema);
-    color: var(--azul-noche);
-    box-shadow: 0 0.5rem 1.5rem rgba(20, 33, 61, 0.12);
-}
-
-.form-info {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-right: 1rem;
-    align-items: stretch;
-}
-
-.form-info > div {
-    color: var(--azul-noche);
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.375rem;
-    width: 100%;
-}
-
-.form-reserv {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    gap: 1rem;
-}
-.form-reserv > div {
-    color: var(--azul-noche);
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.375rem;
-    width: 100%;
-
-}
-
-.policies{
-    display: flex;
-    flex-direction: column;
-}
-
-.form-info label, .form-info .form-label {
-    color: var(--azul-noche);
-    font-weight: 500;
-}
-.form-reserv label, .form-reserv .form-label {
-    color: var(--azul-noche);
-    font-weight: 500;
-}
-#form-hours {
-    width: 100%;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-}
-#form-hours legend {
-    margin-bottom: 0.375rem;
-    color: var(--azul-noche);
-    font-weight: 500;
-}
-
-#form-policies{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-
-.form-info input:not([type="checkbox"]), .form-info select, .form-info textarea {
-    width: 100%;
-    padding: 0.6875rem 0.75rem;
-    border: 0.0625rem solid rgba(91, 100, 112, 0.4);
-    border-radius: 0.5rem;
-    background-color: var(--crema);
-    color: var(--azul-noche);
-    font: inherit;
-}
-.form-info input:not([type="checkbox"]):focus, .form-info select:focus, .form-info textarea:focus {
-    outline: 0.125rem solid var(--verde-ruta);
-    outline-offset: 0.0625rem;
-}
-.form-reserv input:not([type="checkbox"]), .form-reserv select, .form-reserv textarea {
-    width: 100%;
-    padding: 0.6875rem 0.75rem;
-    border: 0.0625rem solid rgba(91, 100, 112, 0.4);
-    border-radius: 0.5rem;
-    background-color: var(--crema);
-    color: var(--azul-noche);
-    font: inherit;
-}
-.form-reserv input:not([type="checkbox"]):focus, .form-reserv select:focus, .form-reserv textarea:focus {
-    outline: 0.125rem solid var(--verde-ruta);
-    outline-offset: 0.0625rem;
-}
-#form-comments {
-    width: 100%;
-}
-#form-comments textarea {
-    display: block;
-    align-self: stretch;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-    height: 6rem;
-    min-height: 6rem;
-    max-height: 6rem;
-    resize: none !important;
-    overflow-y: auto;
-    line-height: 1.5;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.form-reserv textarea:focus {
     border-color: var(--verde-ruta);
-    box-shadow: 0 0 0 0.2rem rgba(30, 122, 79, 0.12);
-}
-.form-reserv input::placeholder, .form-reserv textarea::placeholder {
-    color: var(--gris-asfalto);
-    opacity: 1;
-}
-.form-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.25rem;
-}
-.form-reserv .form-options label, .form-reserv .policy-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    font-weight: normal;
-}
-.form-reserv input[type="checkbox"] {
-    width: 1.125rem;
-    height: 1.125rem;
-    margin: 0;
-    accent-color: var(--verde-ruta);
-}
-.grid-form button {
-    align-self: flex-start;
-}
-#boton-tarifas:active, #boton-reservar:active, #boton-enviar{
-    box-shadow: 0 0.125rem 0.375rem rgba(20, 33, 61, 0.16);
-    transform: translateY(0);
-}
-a:focus,button:focus,input:focus,select:focus,textarea:focus {
-    outline: 0.125rem solid var(--azul-noche);
-    outline-offset: 0.125rem;
 }
 
-footer {
-    background-color: var(--crema);
-    flex-direction: column;
-    align-items: center;
+.navbar-brand {
+    display: block;
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 4 / 1;
+    margin: 0;
+    overflow: hidden;
 }
-footer ul{
-    list-style: none;
-    text-align: center;
+
+.logo-nav {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
-footer p {
+
+.botones-nav {
     font-weight: bold;
+    background-color: var(--crema);
+    color: var(--azul-noche);
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    display: block;
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
-footer a{
-    text-decoration: none;
-    color: var(--verde-ruta);
-}
-.whatsapp-link {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 10;
-    padding: 0.75em 1.25em;
-    border: 0.125rem solid var(--crema);
-    border-radius: 999px;
+
+.botones-nav:hover {
     background-color: var(--verde-ruta);
     color: var(--crema);
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 0.25rem 0.75rem rgba(20, 33, 61, 0.24);
 }
-.whatsapp-link:hover {
+
+.botones-nav.active {
     background-color: var(--naranja-pedal);
     color: var(--azul-noche);
 }
-.flota{
-    padding: 2rem 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-.flota-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-.flota-titulo{
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-.tarjeta{
-    border: 1px solid var(--azul-noche);
-    border-radius: 8px;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-.tarjeta__imagen {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-.tarjeta-name {
-  font-size: 1.25rem;
-  margin: 0.75rem 0 0.5rem;
-}
-
-.tarjeta-descripcion {
-  color: #555;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-}
-
-.tarjeta-precio {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #2e7d32;
-  margin-bottom: 1rem;
-}
-.tarjeta-reservar {
-  display: inline-block;
-  text-align: center;
-  background-color: var(--verde-ruta);
-  color: var(--crema);
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  border-radius: 0.5rem;
-  font-weight: bold;
-
-}
-
