@@ -6,26 +6,37 @@
     <title>Rueda Libre | Alquiler de bicicletas en Medellín</title>
     <link rel="icon" href="img/logo.ico" type="img/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="pb-5">
     <header>
-        <nav class="navbar shadow-sm py-0" aria-label="Navegación principal">
+        <nav class="navbar navbar-expand-lg shadow-sm py-0" aria-label="Navegación principal">
             <div class="container-fluid">
                 <div class="row w-100 align-items-center g-2">
-                    <div class="col-12 col-lg-3 text-center">
-                        <a href="index.html" class="navbar-brand">
-                            <img src="img/logo.jpg" alt="Logo de Rueda Libre" class="logo-nav" onmouseover="this.src='img/logo-alt.jpg'" onmouseout="this.src='img/logo.jpg'">
+                    <div class="col-9 col-lg-3 text-center">
+                        <a href="index.html" class="navbar-brand" onmouseenter="this.querySelector('.logo-nav').src='img/logo-only.png'" onmouseleave="this.querySelector('.logo-nav').src='img/logo-only-alt.png'">
+                            <img src="img/logo-only-alt.png" alt="" class="logo-nav">
+                            <span>Rueda Libre</span>
                         </a>
                     </div>
-                    <div class="col-12 col-lg-3">
-                        <a href="index.html" aria-current="page" class="nav-link botones-nav active">Inicio</a>
+                    <div class="col-3 d-lg-none text-end">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavigation" aria-controls="siteNavigation" aria-expanded="false" aria-label="Abrir o cerrar menú">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                     </div>
-                    <div class="col-12 col-lg-3">
-                        <a href="paginas/tarifas.html" class="nav-link botones-nav">Tarifas</a>
-                    </div>
-                    <div class="col-12 col-lg-3">
-                        <a href="paginas/reservas.html" class="nav-link botones-nav">Reservas</a>
+                    <div class="collapse navbar-collapse col-12 col-lg-9" id="siteNavigation">
+                        <div class="row w-100 align-items-center g-2">
+                            <div class="col-12 col-lg-4">
+                                <a href="index.html" aria-current="page" class="nav-link botones-nav active"><i class="bi bi-house-door-fill me-1" aria-hidden="true"></i>Inicio</a>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <a href="paginas/tarifas.html" class="nav-link botones-nav"><i class="bi bi-tag-fill me-1" aria-hidden="true"></i>Tarifas</a>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <a href="paginas/reservas.html" class="nav-link botones-nav"><i class="bi bi-calendar-check-fill me-1" aria-hidden="true"></i>Reservas</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,45 +50,68 @@
                     <img src="img/logo.jpg" alt="Logo Rueda Libre" class="img-fluid w-100 rounded">
                 </article>
                 <div class="col-12 col-md-7">
-                    <h1 class="text-center mb-4">NUESTRAS RUTAS</h1>
-                    <div class="row g-3 text-center">
-                        <article class="col-12 col-sm-6 col-xl-4">
-                            <div class="card h-100">
-                                <div class="ratio ratio-4x3">
-                                    <img src="img/ruta-rios.jpg" alt="Ruta por ríos y parques" class="img-fluid object-fit-cover rounded-top">
-                                </div>
-                                <div class="card-body">
-                                    <h2 class="h5 card-title">Ríos y parques</h2>
-                                    <p class="card-text mb-0">Fácil</p>
-                                </div>
+                    <div id="homeCarousel" class="carousel carousel-home slide" data-bs-ride="carousel" data-bs-interval="5000" role="region" aria-label="Promociones de Rueda Libre" aria-roledescription="carrusel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+                                <img src="img/promo.png" alt="Promoción de martes: 2 por 1 en bicicletas urbanas." class="d-block w-100 rounded">
                             </div>
-                        </article>
-                        <article class="col-12 col-sm-6 col-xl-4">
-                            <div class="card h-100">
-                                <div class="ratio ratio-4x3">
-                                    <img src="img/ruta-sabores.png" alt="Ruta Sabores de barrio" class="img-fluid object-fit-cover rounded-top">
-                                </div>
-                                <div class="card-body">
-                                    <h2 class="h5 card-title">Sabores de barrio</h2>
-                                    <p class="card-text mb-0">Medio</p>
-                                </div>
+                            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+                                <img src="img/promo2.png" alt="20% de descuento en bicicletas eléctricas de lunes a jueves." class="d-block w-100 rounded">
                             </div>
-                        </article>
-                        <article class="col-12 col-sm-6 col-xl-4">
-                            <div class="card h-100">
-                                <div class="ratio ratio-4x3">
-                                    <img src="img/ruta-palmas.png" alt="Ruta Reto Las Palmas" class="img-fluid object-fit-cover rounded-top">
-                                </div>
-                                <div class="card-body">
-                                    <h2 class="h5 card-title">Reto Las Palmas</h2>
-                                    <p class="card-text mb-0">Difícil</p>
-                                </div>
+                            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+                                <img src="img/promo3.png" alt="Paseo guiado gratis de cumpleaños." class="d-block w-100 rounded">
                             </div>
-                        </article>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev" aria-label="Mostrar diapositiva anterior" aria-controls="homeCarousel">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next" aria-label="Mostrar diapositiva siguiente" aria-controls="homeCarousel">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <div class="container py-4" id="routes">
+            <h1 class="text-center mb-4">NUESTRAS RUTAS</h1>
+            <div class="row g-3 text-center">
+                <article class="col-12 col-sm-6 col-xl-4">
+                    <div class="card h-100">
+                        <div class="ratio ratio-4x3">
+                            <img src="img/ruta-rios.jpg" alt="Ruta por ríos y parques" class="img-fluid object-fit-cover rounded-top">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="h5 card-title">Ríos y parques</h2>
+                            <p class="card-text mb-0">Fácil</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-12 col-sm-6 col-xl-4">
+                    <div class="card h-100">
+                        <div class="ratio ratio-4x3">
+                            <img src="img/ruta-sabores.png" alt="Ruta Sabores de barrio" class="img-fluid object-fit-cover rounded-top">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="h5 card-title">Sabores de barrio</h2>
+                            <p class="card-text mb-0">Medio</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-12 col-sm-6 col-xl-4">
+                    <div class="card h-100">
+                        <div class="ratio ratio-4x3">
+                            <img src="img/ruta-palmas.png" alt="Ruta Reto Las Palmas" class="img-fluid object-fit-cover rounded-top">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="h5 card-title">Reto Las Palmas</h2>
+                            <p class="card-text mb-0">Difícil</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
 
         <section class="container py-4">
             <div class="row g-4">
@@ -85,38 +119,40 @@
                     <section class="card shadow-sm" id="services">
                         <div class="card-body">
                             <h2 class="card-title mb-4">Nuestros servicios</h2>
-                            <div class="row row-cols-1 row-cols-md-3 g-3">
-                                <article id="bike-rental" class="col text-center">
-                                    <div class="card h-100">
-                                        <div class="ratio ratio-4x3">
-                                            <img src="img/bicicleta.jpg" alt="Bicicleta roja de cuadro compacto, con manubrio negro y llantas gruesas, vista de perfil sobre un fondo blanco" class="img-fluid object-fit-cover rounded-top">
+                            <div class="container-fluid px-0">
+                                <div class="row row-cols-1 row-cols-md-3 g-3">
+                                    <article id="bike-rental" class="col text-center">
+                                        <div class="card h-100">
+                                            <div class="ratio ratio-4x3">
+                                                <img src="img/bicicleta.jpg" alt="Bicicleta roja de cuadro compacto, con manubrio negro y llantas gruesas, vista de perfil sobre un fondo blanco" class="img-fluid object-fit-cover rounded-top">
+                                            </div>
+                                            <div class="card-body d-flex flex-column">
+                                                <h3 class="h5 card-title">Alquiler de bicicletas</h3>
+                                                <p class="card-text">Alquila una bicicleta para recorrer Medellín a tu ritmo. <strong>Recuerda usar casco y asegurar la bicicleta con candado</strong> para disfrutar el paseo con mayor tranquilidad.</p>
+                                                <a class="btn btn-success mt-auto align-self-center" href="paginas/tarifas.html#tarifas-bicicletas">Ver tarifas</a>
+                                            </div>
                                         </div>
-                                        <div class="card-body d-flex flex-column">
-                                            <h3 class="h5 card-title">Alquiler de bicicletas</h3>
-                                            <p class="card-text">Alquila una bicicleta para recorrer Medellín a tu ritmo. <strong>Recuerda usar casco y asegurar la bicicleta con candado</strong> para disfrutar el paseo con mayor tranquilidad.</p>
-                                            <a class="btn btn-success mt-auto align-self-center" href="paginas/tarifas.html#tarifas-bicicletas">Ver tarifas</a>
+                                    </article>
+                                    <article id="guided-tours" class="col text-center">
+                                        <div class="card h-100">
+                                            <div class="ratio ratio-4x3">
+                                                <img src="img/ruta.jpg" alt="Mapa de rutas para recorrer Medellín en bicicleta" class="img-fluid object-fit-cover rounded-top">
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="h5 card-title">Rutas guiadas</h3>
+                                                <p class="card-text">Únete a nuestras rutas guiadas para descubrir los mejores lugares de Medellín. Es una forma <em>divertida de conocer la ciudad sobre ruedas</em>.</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </article>
-                                <article id="guided-tours" class="col text-center">
-                                    <div class="card h-100">
-                                        <div class="ratio ratio-4x3">
-                                            <img src="img/ruta.jpg" alt="Mapa de rutas para recorrer Medellín en bicicleta" class="img-fluid object-fit-cover rounded-top">
+                                    </article>
+                                    <article id="basic-workshop" class="col text-center">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h3 class="h5 card-title">Taller básico</h3>
+                                                <p class="card-text">Contamos con un taller básico para el mantenimiento de tu bicicleta y asesoramiento técnico.</p>
+                                            </div>
                                         </div>
-                                        <div class="card-body">
-                                            <h3 class="h5 card-title">Rutas guiadas</h3>
-                                            <p class="card-text">Únete a nuestras rutas guiadas para descubrir los mejores lugares de Medellín. Es una forma <em>divertida de conocer la ciudad sobre ruedas</em>.</p>
-                                        </div>
-                                    </div>
-                                </article>
-                                <article id="basic-workshop" class="col text-center">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                            <h3 class="h5 card-title">Taller básico</h3>
-                                            <p class="card-text">Contamos con un taller básico para el mantenimiento de tu bicicleta y asesoramiento técnico.</p>
-                                        </div>
-                                    </div>
-                                </article>
+                                    </article>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -244,10 +280,10 @@
                 <div class="card-body">
                     <h2 class="h3">¿Por qué Rueda Libre?</h2>
                     <ul class="list-group">
-                        <li class="list-group-item">Bicicletas revisadas en cada alquiler</li>
-                        <li class="list-group-item">Casco y candado incluidos</li>
-                        <li class="list-group-item">Guías certificados.</li>
-                        <li class="list-group-item">Puntos de devolución en tres sedes.</li>
+                        <li class="list-group-item"><i class="bi bi-bicycle me-2" aria-hidden="true"></i>Bicicletas revisadas en cada alquiler</li>
+                        <li class="list-group-item"><i class="bi bi-shield-check me-2" aria-hidden="true"></i>Casco y candado incluidos</li>
+                        <li class="list-group-item"><i class="bi bi-person-check-fill me-2" aria-hidden="true"></i>Guías certificados.</li>
+                        <li class="list-group-item"><i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i>Puntos de devolución en tres sedes.</li>
                     </ul>
                 </div>
             </div>
@@ -260,16 +296,16 @@
             <div class="col-12 col-md-4">
                 <h2 class="h5">Contacto</h2>
                 <p class="mb-1">Email:</p>
-                <a href="mailto:info@ruedalibre.com">info@ruedalibre.com</a>
+                <a href="mailto:info@ruedalibre.com"><i class="bi bi-envelope-fill me-1" aria-hidden="true"></i>info@ruedalibre.com</a>
             </div>
             <div class="col-12 col-md-4">
                 <h2 class="h5">Horario</h2>
-                <p class="mb-1">Lunes a viernes: 8:00 a.m. - 6:00 p.m.</p>
-                <p class="mb-0">Sábados y domingos: 9:00 a.m. - 5:00 p.m.</p>
+                <p class="mb-1"><i class="bi bi-clock-fill me-1" aria-hidden="true"></i>Lunes a viernes: 8:00 a.m. - 6:00 p.m.</p>
+                <p class="mb-0"><i class="bi bi-clock-fill me-1" aria-hidden="true"></i>Sábados y domingos: 9:00 a.m. - 5:00 p.m.</p>
             </div>
         </div>
     </footer>
-    <a class="btn btn-success rounded-pill shadow position-fixed bottom-0 end-0 m-3 z-3" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="btn btn-success rounded-pill shadow position-fixed bottom-0 end-0 m-3 z-3" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp me-1" aria-hidden="true"></i>WhatsApp</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

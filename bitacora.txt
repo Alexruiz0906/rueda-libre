@@ -141,5 +141,20 @@ Lo que mejoraría en un siguiente proyecto:
 - practicar más el uso de DevTools para detectar errores rápidamente
 - mejorar la organización del código CSS para que sea más fácil mantenerlo
 
-En general, esta semana me dejó una base sólida para seguir aprendiendo HTML, CSS y la lógica de la programación web. Lo más importante fue entender que cada detalle cuenta
+En general, esta semana me dejó una base sólida para seguir aprendiendo HTML, CSS y la lógica de la programación web. Lo más importante fue entender que cada detalle cuenta.
 
+12. Cierre de la bitácora: resumen de la semana
+
+Esta semana personalicé y revisé las páginas de Rueda Libre para que fueran más claras, accesibles y cómodas de usar en celular y computador.
+
+- Ajusté la barra de navegación para que use un menú hamburguesa en pantallas pequeñas y mantenga sus enlaces visibles en escritorio. También alineé el logo y conservé sus cambios de imagen al pasar el cursor.
+- Mejoré el carrusel de la página de inicio: mantuve su tamaño, agregué avance automático y textos alternativos y etiquetas accesibles para sus controles.
+- Incorporé Bootstrap Icons en la navegación, los datos de contacto, los beneficios y los enlaces de WhatsApp, ocultando los iconos decorativos a lectores de pantalla.
+- Hice más claro el formulario de reservas con mensajes junto a los campos, un recordatorio visible del documento y una ventana con las políticas de alquiler. La validación se realiza con atributos HTML y la validación nativa del navegador; no agregué JavaScript personalizado para validar los datos.
+- Revisé las grillas de Bootstrap y probé las páginas en anchos de 375, 768 y 1280 píxeles. No encontré desbordamiento horizontal; el menú móvil se pudo abrir con teclado y el foco llegó a sus enlaces. Las combinaciones de contraste revisadas superaron 4,5:1.
+
+Guardé dos capturas de la página de inicio, tomadas al mismo tamaño de escritorio para comparar la versión previa con la personalizada:
+- Antes de personalizar: img/capturas/antes-de-personalizar.png
+- Después de personalizar: img/capturas/despues-de-personalizar.png
+
+Con esto cierro la bitácora de esta semana y dejo registrado lo que cambié, lo que comprobé y el resultado visual del sitio.

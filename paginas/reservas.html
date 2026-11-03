@@ -7,34 +7,50 @@
     <title>Rueda Libre | Reservas</title>
     <link rel="icon" href="../img/logo.ico" type="img/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body class="pb-5">
 <header class="p-0">
-    <nav class="navbar shadow-sm py-0" aria-label="Navegación principal">
+    <nav class="navbar navbar-expand-lg shadow-sm py-0" aria-label="Navegación principal">
         <div class="container-fluid">
             <div class="row w-100 align-items-center g-2">
-                <div class="col-12 col-lg-3 text-center mb-3 mb-lg-0">
-                    <a href="../index.html" class="navbar-brand">
-                        <img src="../img/logo.jpg" alt="Logo de Rueda Libre" class="logo-nav" onmouseover="this.src='../img/logo-alt.jpg'" onmouseout="this.src='../img/logo.jpg'">
+                <div class="col-9 col-lg-3 text-center mb-lg-0">
+                    <a href="../index.html" class="navbar-brand" onmouseenter="this.querySelector('.logo-nav').src='../img/logo-only.png'" onmouseleave="this.querySelector('.logo-nav').src='../img/logo-only-alt.png'">
+                        <img src="../img/logo-only-alt.png" alt="" class="logo-nav">
+                        <span>Rueda Libre</span>
                     </a>
                 </div>
-                <div class="col-12 col-lg-3 text-center mb-2 mb-lg-0">
-                    <a href="../index.html" class="nav-link botones-nav">Inicio</a>
+                <div class="col-3 d-lg-none text-end">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavigation" aria-controls="siteNavigation" aria-expanded="false" aria-label="Abrir o cerrar menú">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
-                <div class="col-12 col-lg-3 text-center mb-2 mb-lg-0">
-                    <a href="tarifas.html" class="nav-link botones-nav">Tarifas</a>
+                <div class="collapse navbar-collapse col-12 col-lg-9" id="siteNavigation">
+                    <div class="row w-100 align-items-center g-2">
+                        <div class="col-12 col-lg-4 text-center">
+                            <a href="../index.html" class="nav-link botones-nav"><i class="bi bi-house-door-fill me-1" aria-hidden="true"></i>Inicio</a>
+                        </div>
+                        <div class="col-12 col-lg-4 text-center">
+                            <a href="tarifas.html" class="nav-link botones-nav"><i class="bi bi-tag-fill me-1" aria-hidden="true"></i>Tarifas</a>
+                        </div>
+                        <div class="col-12 col-lg-4 text-center">
+                            <a href="reservas.html" aria-current="page" class="nav-link botones-nav active"><i class="bi bi-calendar-check-fill me-1" aria-hidden="true"></i>Reservas</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-lg-3 text-center">
-                    <a href="reservas.html" aria-current="page" class="nav-link botones-nav active">Reservas</a>
-                </div>
-
             </div>
         </div>
     </nav>
 </header>
     <main class="container py-4" id="main">
+        <div class="alert alert-warning d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3" role="note">
+            <p class="mb-0"><strong>Recuerda:</strong> presenta tu documento de identidad original al recoger la bicicleta.</p>
+            <button class="btn btn-outline-success flex-shrink-0" type="button" data-bs-toggle="modal" data-bs-target="#rentalPoliciesModal">
+                Leer políticas de alquiler
+            </button>
+        </div>
         <div class="row g-4 align-items-start">
             <form action="#" method="post" id="reservation-form" class="reservation-form col-12 col-md-8 p-4">
                 <div class="row g-4">
@@ -43,32 +59,39 @@
                         <div class="row g-3 form-info-fields">
                     <div id="form-name" class="col-12 col-lg-6">
                         <label class="form-label" for="name">Nombre completo</label>
-                        <input class="form-control" type="text" id="name" name="user_name" placeholder="Pedro Pérez" required minlength="3">
+                        <input class="form-control" type="text" id="name" name="user_name" placeholder="Pedro Pérez" required minlength="3" aria-describedby="name-error">
+                        <div class="invalid-feedback" id="name-error">Ingresa tu nombre completo (mínimo 3 caracteres).</div>
                     </div>
                     <div id="form-document-type" class="col-12 col-lg-6">
                         <label class="form-label" for="document-type">Tipo de documento</label>
-                        <select class="form-select" id="document-type" name="document_type" required>
+                        <select class="form-select" id="document-type" name="document_type" required aria-describedby="document-type-error">
+                            <option value="" selected disabled>Selecciona tu tipo de documento</option>
                             <option value="TJ">Tarjeta de identidad</option>
                             <option value="CC">Cédula de ciudadanía</option>
                         </select>
+                        <div class="invalid-feedback" id="document-type-error">Selecciona tu tipo de documento.</div>
                     </div>
                     <div id="form-document" class="col-12 col-lg-6">
                         <label class="form-label" for="document">Documento de identidad</label>
                         <input class="form-control" type="text" inputmode="numeric" pattern="[0-9]{6,10}" id="document" name="user_document"
-                            placeholder="Ingresa número de documento" required minlength="6" maxlength="10">
+                            placeholder="Ingresa número de documento" required minlength="6" maxlength="10" aria-describedby="document-error">
+                        <div class="invalid-feedback" id="document-error">Ingresa un documento de 6 a 10 dígitos, solo números.</div>
                     </div>
                     <div id="form-email" class="col-12 col-lg-6">
                         <label class="form-label" for="email">Correo electrónico</label>
-                        <input class="form-control" type="email" id="email" name="user_email" placeholder="email@example.com" required>
+                        <input class="form-control" type="email" id="email" name="user_email" placeholder="email@example.com" required aria-describedby="email-error">
+                        <div class="invalid-feedback" id="email-error">Ingresa un correo electrónico válido.</div>
                     </div>
                     <div id="form-number" class="col-12 col-lg-6">
                         <label class="form-label" for="number-phone">Número de teléfono</label>
                         <input class="form-control" type="tel" inputmode="numeric" pattern="3[0-9]{9}" id="number-phone" name="number_phone"
-                            placeholder="3051262612" minlength="10" maxlength="10">
+                            placeholder="3051262612" minlength="10" maxlength="10" aria-describedby="number-phone-error">
+                        <div class="invalid-feedback" id="number-phone-error">Ingresa un celular colombiano de 10 dígitos que empiece por 3.</div>
                     </div>
                     <div id="form-date" class="col-12 col-lg-6">
                         <label class="form-label" for="date">Fecha de reserva</label>
-                        <input class="form-control" type="date" min="2026-11-01" max="2026-12-31" id="date" name="reservation_date" required>
+                        <input class="form-control" type="date" min="2026-11-01" max="2026-12-31" id="date" name="reservation_date" required aria-describedby="date-error">
+                        <div class="invalid-feedback" id="date-error">Selecciona una fecha entre el 1 de noviembre y el 31 de diciembre de 2026.</div>
                     </div>
                         </div>
                     </fieldset>
@@ -77,23 +100,28 @@
                         <div class="row g-3 form-reserv-fields">
                     <div id="form-bike" class="col-12 col-sm-6">
                         <label class="form-label" for="bike">Tipo de bicicleta</label>
-                        <select class="form-select" id="bike" name="bike_type" required>
+                        <select class="form-select" id="bike" name="bike_type" required aria-describedby="bike-error">
+                            <option value="" selected disabled>Selecciona una bicicleta</option>
                             <option value="urban">Bicicleta urbana</option>
                             <option value="mountain">Bicicleta de montaña</option>
                             <option value="electric">Bicicleta eléctrica</option>
                         </select>
+                        <div class="invalid-feedback" id="bike-error">Selecciona el tipo de bicicleta.</div>
                     </div>
                     <div id="form-plan" class="col-12 col-sm-6">
                         <label class="form-label" for="plan">Recorrido</label>
-                        <select class="form-select" id="plan" name="tour_plan" required>
+                        <select class="form-select" id="plan" name="tour_plan" required aria-describedby="plan-error">
+                            <option value="" selected disabled>Selecciona un recorrido</option>
                             <option value="parks">Ríos y parques</option>
                             <option value="barrio">Sabores del barrio</option>
                             <option value="palmas">Reto Las Palmas</option>
                         </select>
+                        <div class="invalid-feedback" id="plan-error">Selecciona un recorrido.</div>
                     </div>
                     <div id="form-quantity" class="col-12 col-sm-6">
                         <label class="form-label" for="bike-quantity">Cantidad de bicicletas (de 1 a 6)</label>
-                        <input class="form-control" type="number" id="bike-quantity" name="bike_quantity" min="1" max="6" value="1" required>
+                        <input class="form-control" type="number" id="bike-quantity" name="bike_quantity" min="1" max="6" value="1" required aria-describedby="bike-quantity-error">
+                        <div class="invalid-feedback" id="bike-quantity-error">Indica una cantidad entre 1 y 6 bicicletas.</div>
                     </div>
                     <fieldset id="form-hours" class="col-12 border-0">
                         <legend class="fs-6 fw-medium">Duración del alquiler</legend>
@@ -118,9 +146,13 @@
                         <div>
                             <span class="form-label fw-medium">Políticas de alquiler</span>
                             <label class="form-check">
-                                <input class="form-check-input" type="checkbox" id="accept-policies" name="accept_policies" required>
+                                <input class="form-check-input" type="checkbox" id="accept-policies" name="accept_policies" required aria-describedby="accept-policies-error">
                                 Acepto las políticas de alquiler.
                             </label>
+                            <div class="invalid-feedback" id="accept-policies-error">Debes aceptar las políticas de alquiler para continuar.</div>
+                            <button class="btn btn-link p-0" type="button" data-bs-toggle="modal" data-bs-target="#rentalPoliciesModal">
+                                Consultar las políticas
+                            </button>
                         </div>
                         <button class="btn btn-success" type="submit">Enviar</button>
                     </div>
@@ -132,32 +164,55 @@
                 <div class="card-body">
                 <h2 class="h4 card-title" id="reservation-contact-title">¿Tienes preguntas?</h2>
                 <p>Comunícate con nosotros si necesitas ayuda con tu reserva.</p>
-                <h3 class="h5">Correo electrónico</h3>
-                <p><a href="mailto:info@ruedalibre.com">info@ruedalibre.com</a></p>
-                <h3 class="h5">Horario de atención</h3>
-                <p>Lunes a viernes: 8:00 a.m. - 6:00 p.m.<br>
-                    Sábados y domingos: 9:00 a.m. - 5:00 p.m.</p>
-                <a class="btn btn-success" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
+                <h3 class="h5"><i class="bi bi-envelope-fill me-1" aria-hidden="true"></i>Correo electrónico</h3>
+                <p><a href="mailto:info@ruedalibre.com"><i class="bi bi-envelope me-1" aria-hidden="true"></i>info@ruedalibre.com</a></p>
+                <h3 class="h5"><i class="bi bi-clock-fill me-1" aria-hidden="true"></i>Horario de atención</h3>
+                <p><i class="bi bi-clock me-1" aria-hidden="true"></i>Lunes a viernes: 8:00 a.m. - 6:00 p.m.<br>
+                    <i class="bi bi-clock me-1" aria-hidden="true"></i>Sábados y domingos: 9:00 a.m. - 5:00 p.m.</p>
+                <a class="btn btn-success" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp me-1" aria-hidden="true"></i>Escríbenos por WhatsApp</a>
                 </div>
             </aside>
         </div>
     </main>
+    <div class="modal fade" id="rentalPoliciesModal" tabindex="-1" aria-labelledby="rentalPoliciesTitle" aria-describedby="rentalPoliciesDescription" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="rentalPoliciesTitle">Políticas de alquiler</h2>
+                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="rentalPoliciesDescription">
+                    <p>Antes de enviar tu reserva, ten en cuenta lo siguiente:</p>
+                    <ol class="mb-0">
+                        <li>Presenta tu documento de identidad original al recoger la bicicleta.</li>
+                        <li>Revisa la bicicleta con el asesor antes de salir.</li>
+                        <li>Cada 15 minutos de retraso en la devolución tienen un recargo de $5.000.</li>
+                        <li>Los daños por mal uso se cobran según el costo de la reparación.</li>
+                        <li>Los menores de edad deben estar acompañados por un adulto responsable.</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" type="button" data-bs-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="container-fluid py-4">
         <div class="row g-3 text-center">
             <div class="col-12 col-md-4 fw-bold">&copy; 2026 Rueda Libre. Todos los derechos reservados. Riwi.</div>
             <div class="col-12 col-md-4">
                 <h2 class="h5">Contacto</h2>
                 <p class="mb-1">Email:</p>
-                <a href="mailto:info@ruedalibre.com">info@ruedalibre.com</a>
+                <a href="mailto:info@ruedalibre.com"><i class="bi bi-envelope-fill me-1" aria-hidden="true"></i>info@ruedalibre.com</a>
             </div>
             <div class="col-12 col-md-4">
                 <h2 class="h5">Horario</h2>
-                <p class="mb-1">Lunes a viernes: 8:00 a.m. - 6:00 p.m.</p>
-                <p class="mb-0">Sábados y domingos: 9:00 a.m. - 5:00 p.m.</p>
+                <p class="mb-1"><i class="bi bi-clock-fill me-1" aria-hidden="true"></i>Lunes a viernes: 8:00 a.m. - 6:00 p.m.</p>
+                <p class="mb-0"><i class="bi bi-clock-fill me-1" aria-hidden="true"></i>Sábados y domingos: 9:00 a.m. - 5:00 p.m.</p>
             </div>
         </div>
     </footer>
-    <a class="btn btn-success rounded-pill shadow position-fixed bottom-0 end-0 m-3 z-3" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="btn btn-success rounded-pill shadow position-fixed bottom-0 end-0 m-3 z-3" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp me-1" aria-hidden="true"></i>WhatsApp</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 

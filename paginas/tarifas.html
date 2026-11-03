@@ -6,28 +6,38 @@
     <title>Rueda Libre | Tarifas</title>
     <link rel="icon" href="../img/logo.ico" type="img/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body class="pb-5">
 <header class="p-0">
-    <nav class="navbar shadow-sm py-0" aria-label="Navegación principal">
+    <nav class="navbar navbar-expand-lg shadow-sm py-0" aria-label="Navegación principal">
         <div class="container-fluid">
             <div class="row w-100 align-items-center g-2">
-                <div class="col-12 col-lg-3 text-center mb-3 mb-lg-0">
-                    <a href="../index.html" class="navbar-brand">
-                        <img src="../img/logo.jpg" alt="Logo de Rueda Libre" class="logo-nav" onmouseover="this.src='../img/logo-alt.jpg'" onmouseout="this.src='../img/logo.jpg'">
+                <div class="col-9 col-lg-3 text-center mb-lg-0">
+                    <a href="../index.html" class="navbar-brand" onmouseenter="this.querySelector('.logo-nav').src='../img/logo-only.png'" onmouseleave="this.querySelector('.logo-nav').src='../img/logo-only-alt.png'">
+                        <img src="../img/logo-only-alt.png" alt="" class="logo-nav">
+                        <span>Rueda Libre</span>
                     </a>
                 </div>
-                <div class="col-12 col-lg-3 text-center mb-2 mb-lg-0">
-                    <a href="../index.html" class="nav-link botones-nav">Inicio</a>
+                <div class="col-3 d-lg-none text-end">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavigation" aria-controls="siteNavigation" aria-expanded="false" aria-label="Abrir o cerrar menú">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
-                <div class="col-12 col-lg-3 text-center mb-2 mb-lg-0">
-                    <a href="tarifas.html" aria-current="page" class="nav-link botones-nav active">Tarifas</a>
+                <div class="collapse navbar-collapse col-12 col-lg-9" id="siteNavigation">
+                    <div class="row w-100 align-items-center g-2">
+                        <div class="col-12 col-lg-4 text-center">
+                            <a href="../index.html" class="nav-link botones-nav"><i class="bi bi-house-door-fill me-1" aria-hidden="true"></i>Inicio</a>
+                        </div>
+                        <div class="col-12 col-lg-4 text-center">
+                            <a href="tarifas.html" aria-current="page" class="nav-link botones-nav active"><i class="bi bi-tag-fill me-1" aria-hidden="true"></i>Tarifas</a>
+                        </div>
+                        <div class="col-12 col-lg-4 text-center">
+                            <a href="reservas.html" class="nav-link botones-nav"><i class="bi bi-calendar-check-fill me-1" aria-hidden="true"></i>Reservas</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-lg-3 text-center">
-                    <a href="reservas.html" class="nav-link botones-nav">Reservas</a>
-                </div>
-
             </div>
         </div>
     </nav>
@@ -40,31 +50,37 @@
                     <div class="card shadow-sm mb-3">
                         <div class="card-body">
                             <h3 class="h5 card-title">Bicicleta urbana</h3>
-                            <dl class="row mb-0">
-                                <dt class="col-7">1 hora</dt><dd class="col-5 text-end">$10.000 COP</dd>
-                                <dt class="col-7">Medio día (4 horas)</dt><dd class="col-5 text-end">$30.000 COP</dd>
-                                <dt class="col-7">Día completo</dt><dd class="col-5 text-end">$50.000 COP</dd>
-                            </dl>
+                            <div class="container-fluid px-0">
+                                <dl class="row mb-0">
+                                    <dt class="col-7">1 hora</dt><dd class="col-5 text-end">$10.000 COP</dd>
+                                    <dt class="col-7">Medio día (4 horas)</dt><dd class="col-5 text-end">$30.000 COP</dd>
+                                    <dt class="col-7">Día completo</dt><dd class="col-5 text-end">$50.000 COP</dd>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                     <div class="card shadow-sm mb-3">
                         <div class="card-body">
                             <h3 class="h5 card-title">Bicicleta de montaña</h3>
-                            <dl class="row mb-0">
-                                <dt class="col-7">1 hora</dt><dd class="col-5 text-end">$15.000 COP</dd>
-                                <dt class="col-7">Medio día (4 horas)</dt><dd class="col-5 text-end">$45.000 COP</dd>
-                                <dt class="col-7">Día completo</dt><dd class="col-5 text-end">$70.000 COP</dd>
-                            </dl>
+                            <div class="container-fluid px-0">
+                                <dl class="row mb-0">
+                                    <dt class="col-7">1 hora</dt><dd class="col-5 text-end">$15.000 COP</dd>
+                                    <dt class="col-7">Medio día (4 horas)</dt><dd class="col-5 text-end">$45.000 COP</dd>
+                                    <dt class="col-7">Día completo</dt><dd class="col-5 text-end">$70.000 COP</dd>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                     <div class="card shadow-sm mb-3">
                         <div class="card-body">
                             <h3 class="h5 card-title">Bicicleta eléctrica</h3>
-                            <dl class="row mb-0">
-                                <dt class="col-7">1 hora</dt><dd class="col-5 text-end">$25.000 COP</dd>
-                                <dt class="col-7">Medio día (4 horas)</dt><dd class="col-5 text-end">$70.000 COP</dd>
-                                <dt class="col-7">Día completo</dt><dd class="col-5 text-end">$110.000 COP</dd>
-                            </dl>
+                            <div class="container-fluid px-0">
+                                <dl class="row mb-0">
+                                    <dt class="col-7">1 hora</dt><dd class="col-5 text-end">$25.000 COP</dd>
+                                    <dt class="col-7">Medio día (4 horas)</dt><dd class="col-5 text-end">$70.000 COP</dd>
+                                    <dt class="col-7">Día completo</dt><dd class="col-5 text-end">$110.000 COP</dd>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                     <p class="text-secondary mb-0">Tarifa por persona. Incluye casco y candado.</p>
@@ -109,34 +125,40 @@
                     <div class="card shadow-sm mb-3">
                         <div class="card-body">
                             <h3 class="h5 card-title">Río y parques</h3>
-                            <dl class="row mb-0">
-                                <dt class="col-7">Distancia</dt><dd class="col-5 text-end">12 km</dd>
-                                <dt class="col-7">Duración</dt><dd class="col-5 text-end">2 horas</dd>
-                                <dt class="col-7">Nivel</dt><dd class="col-5 text-end">Fácil</dd>
-                                <dt class="col-7">Precio por persona</dt><dd class="col-5 text-end">$45.000 COP</dd>
-                            </dl>
+                            <div class="container-fluid px-0">
+                                <dl class="row mb-0">
+                                    <dt class="col-7">Distancia</dt><dd class="col-5 text-end">12 km</dd>
+                                    <dt class="col-7">Duración</dt><dd class="col-5 text-end">2 horas</dd>
+                                    <dt class="col-7">Nivel</dt><dd class="col-5 text-end">Fácil</dd>
+                                    <dt class="col-7">Precio por persona</dt><dd class="col-5 text-end">$45.000 COP</dd>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                     <div class="card shadow-sm mb-3">
                         <div class="card-body">
                             <h3 class="h5 card-title">Sabores de barrio</h3>
-                            <dl class="row mb-0">
-                                <dt class="col-7">Distancia</dt><dd class="col-5 text-end">18 km</dd>
-                                <dt class="col-7">Duración</dt><dd class="col-5 text-end">3 horas</dd>
-                                <dt class="col-7">Nivel</dt><dd class="col-5 text-end">Medio</dd>
-                                <dt class="col-7">Precio por persona</dt><dd class="col-5 text-end">$60.000 COP</dd>
-                            </dl>
+                            <div class="container-fluid px-0">
+                                <dl class="row mb-0">
+                                    <dt class="col-7">Distancia</dt><dd class="col-5 text-end">18 km</dd>
+                                    <dt class="col-7">Duración</dt><dd class="col-5 text-end">3 horas</dd>
+                                    <dt class="col-7">Nivel</dt><dd class="col-5 text-end">Medio</dd>
+                                    <dt class="col-7">Precio por persona</dt><dd class="col-5 text-end">$60.000 COP</dd>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                     <div class="card shadow-sm mb-3">
                         <div class="card-body">
                             <h3 class="h5 card-title">Reto Las Palmas</h3>
-                            <dl class="row mb-0">
-                                <dt class="col-7">Distancia</dt><dd class="col-5 text-end">25 km</dd>
-                                <dt class="col-7">Duración</dt><dd class="col-5 text-end">4 horas</dd>
-                                <dt class="col-7">Nivel</dt><dd class="col-5 text-end">Difícil</dd>
-                                <dt class="col-7">Precio por persona</dt><dd class="col-5 text-end">$85.000 COP</dd>
-                            </dl>
+                            <div class="container-fluid px-0">
+                                <dl class="row mb-0">
+                                    <dt class="col-7">Distancia</dt><dd class="col-5 text-end">25 km</dd>
+                                    <dt class="col-7">Duración</dt><dd class="col-5 text-end">4 horas</dd>
+                                    <dt class="col-7">Nivel</dt><dd class="col-5 text-end">Difícil</dd>
+                                    <dt class="col-7">Precio por persona</dt><dd class="col-5 text-end">$85.000 COP</dd>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -191,16 +213,16 @@
             <div class="col-12 col-md-4">
                 <h2 class="h5">Contacto</h2>
                 <p class="mb-1">Email:</p>
-                <a href="mailto:info@ruedalibre.com">info@ruedalibre.com</a>
+                <a href="mailto:info@ruedalibre.com"><i class="bi bi-envelope-fill me-1" aria-hidden="true"></i>info@ruedalibre.com</a>
             </div>
             <div class="col-12 col-md-4">
                 <h2 class="h5">Horario</h2>
-                <p class="mb-1">Lunes a viernes: 8:00 a.m. - 6:00 p.m.</p>
-                <p class="mb-0">Sábados y domingos: 9:00 a.m. - 5:00 p.m.</p>
+                <p class="mb-1"><i class="bi bi-clock-fill me-1" aria-hidden="true"></i>Lunes a viernes: 8:00 a.m. - 6:00 p.m.</p>
+                <p class="mb-0"><i class="bi bi-clock-fill me-1" aria-hidden="true"></i>Sábados y domingos: 9:00 a.m. - 5:00 p.m.</p>
             </div>
         </div>
     </footer>
-    <a class="btn btn-success rounded-pill shadow position-fixed bottom-0 end-0 m-3 z-3" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="btn btn-success rounded-pill shadow position-fixed bottom-0 end-0 m-3 z-3" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp me-1" aria-hidden="true"></i>WhatsApp</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
