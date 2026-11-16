@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kit de componentes · Rueda Nocturna</title>
+        <link rel="icon" href="../img/logo.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./src/output.css">
+    </head>
+    <body class="bg-crema font-open-sans text-azul-noche dark:bg-azul-noche dark:text-crema">
+        <header class="border-b border-gris-asfalto/30 dark:border-crema/15">
+            <div class="flex flex-col items-center justify-between gap-4 max-w-6xl mx-auto px-4 py-4 sm:px-6 md:flex-row lg:px-8">
+                <p class="font-montserrat text-xl font-extrabold">Kit de componentes · Rueda Nocturna</p>
+                <a href="index.html" class="btn-contorno">Ver la landing</a>
+            </div>
+        </header>
+
+        <main class="flex flex-col gap-16 max-w-6xl mx-auto px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+            <!-- ===== Reglas del kit ===== -->
+            <section aria-labelledby="reglas-titulo">
+                <h1 id="reglas-titulo" class="mb-4 font-montserrat text-3xl font-bold lg:text-4xl">Reglas del kit</h1>
+                <ul class="grid grid-cols-1 gap-4 md:grid-cols-3">
+                    <li class="p-6 rounded-2xl border border-gris-asfalto/30 bg-crema shadow-md dark:border-crema/15 dark:bg-crema/5">
+                        <h2 class="mb-2 font-montserrat font-bold">Radios</h2>
+                        <p class="text-gris-asfalto dark:text-crema/80"><code>rounded-xl</code> en botones, campos y alertas · <code>rounded-2xl</code> en cards y contenedores · <code>rounded-full</code> en etiquetas.</p>
+                    </li>
+                    <li class="p-6 rounded-2xl border border-gris-asfalto/30 bg-crema shadow-md dark:border-crema/15 dark:bg-crema/5">
+                        <h2 class="mb-2 font-montserrat font-bold">Espaciado</h2>
+                        <p class="text-gris-asfalto dark:text-crema/80">Solo la escala 2 · 4 · 6 · 8 (8, 16, 24 y 32 px). Botones y campos <code>px-6 py-3</code> / <code>px-4 py-3</code>, cards <code>p-6</code>, separación <code>gap-4</code> o <code>gap-6</code>.</p>
+                    </li>
+                    <li class="p-6 rounded-2xl border border-gris-asfalto/30 bg-crema shadow-md dark:border-crema/15 dark:bg-crema/5">
+                        <h2 class="mb-2 font-montserrat font-bold">Colores</h2>
+                        <p class="text-gris-asfalto dark:text-crema/80">Solo los seis de la marca: Azul Noche, Crema, Verde Ruta, Naranja Pedal, Gris Asfalto y Amarillo Farol. Foco: anillo Verde Ruta (claro) o Amarillo Farol (oscuro).</p>
+                    </li>
+                </ul>
+                <ul class="flex flex-wrap gap-4 mt-6" aria-label="Paleta de la marca">
+                    <li class="flex items-center gap-2"><span class="size-8 rounded-full border border-gris-asfalto/30 bg-azul-noche dark:border-crema/40" aria-hidden="true"></span>Azul Noche #14213D</li>
+                    <li class="flex items-center gap-2"><span class="size-8 rounded-full border border-gris-asfalto/30 bg-crema dark:border-crema/40" aria-hidden="true"></span>Crema #FAF6EF</li>
+                    <li class="flex items-center gap-2"><span class="size-8 rounded-full border border-gris-asfalto/30 bg-verde-ruta dark:border-crema/40" aria-hidden="true"></span>Verde Ruta #1E7A4F</li>
+                    <li class="flex items-center gap-2"><span class="size-8 rounded-full border border-gris-asfalto/30 bg-naranja-pedal dark:border-crema/40" aria-hidden="true"></span>Naranja Pedal #F39A2B</li>
+                    <li class="flex items-center gap-2"><span class="size-8 rounded-full border border-gris-asfalto/30 bg-gris-asfalto dark:border-crema/40" aria-hidden="true"></span>Gris Asfalto #5B6470</li>
+                    <li class="flex items-center gap-2"><span class="size-8 rounded-full border border-gris-asfalto/30 bg-amarillo-farol dark:border-crema/40" aria-hidden="true"></span>Amarillo Farol #FFD166</li>
+                </ul>
+            </section>
+
+            <!-- ===== Botones ===== -->
+            <section aria-labelledby="botones-titulo">
+                <h2 id="botones-titulo" class="mb-2 font-montserrat text-2xl font-bold lg:text-3xl">Botones</h2>
+                <p class="mb-6 text-gris-asfalto dark:text-crema/80">Pasa el mouse o navega con <kbd>Tab</kbd> para ver los estados hover y foco.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#botones-titulo" class="btn-primario">Principal</a>
+                    <a href="#botones-titulo" class="btn-secundario">Secundario</a>
+                    <a href="#botones-titulo" class="btn-contorno">Contorno</a>
+                </div>
+            </section>
+
+            <!-- ===== Card ===== -->
+            <section aria-labelledby="card-titulo">
+                <h2 id="card-titulo" class="mb-6 font-montserrat text-2xl font-bold lg:text-3xl">Card de ruta</h2>
+                <div class="max-w-sm">
+                    <article class="flex flex-col overflow-hidden rounded-2xl border border-gris-asfalto/30 bg-crema shadow-md transition hover:border-verde-ruta hover:shadow-xl dark:border-crema/15 dark:bg-crema/5 dark:hover:border-amarillo-farol">
+                        <img src="../img/ruta-sabores.png" alt="Calle de barrio en el centro de Medellín, parte de la ruta Luces del Centro" class="w-full h-48 object-cover">
+                        <div class="flex flex-col flex-1 p-6">
+                            <p class="mb-4">
+                                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-verde-ruta text-crema"><span aria-hidden="true">●○○</span> Nivel fácil</span>
+                            </p>
+                            <h3 class="mb-4 font-montserrat text-xl font-bold">Luces del Centro</h3>
+                            <dl class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <dt class="text-xs uppercase tracking-wide text-gris-asfalto dark:text-crema/80">Distancia</dt>
+                                    <dd class="text-lg font-semibold">10 km</dd>
+                                </div>
+                                <div>
+                                    <dt class="text-xs uppercase tracking-wide text-gris-asfalto dark:text-crema/80">Duración</dt>
+                                    <dd class="text-lg font-semibold">2 h</dd>
+                                </div>
+                                <div class="col-span-2">
+                                    <dt class="text-xs uppercase tracking-wide text-gris-asfalto dark:text-crema/80">Punto de encuentro</dt>
+                                    <dd class="text-lg font-semibold">Sede Rueda Libre</dd>
+                                </div>
+                            </dl>
+                            <div class="flex flex-wrap items-end justify-between gap-4 mt-auto">
+                                <p>
+                                    <span class="block text-xs uppercase tracking-wide text-gris-asfalto dark:text-crema/80">Precio por persona</span>
+                                    <span class="font-montserrat text-3xl font-extrabold text-verde-ruta dark:text-amarillo-farol">$55.000</span>
+                                </p>
+                                <a href="index.html#inscripcion" class="btn-primario">Inscríbete</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <p class="mt-6 mb-2 font-semibold">Etiquetas de nivel (color + texto + puntos):</p>
+                <div class="flex flex-wrap gap-4">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-verde-ruta text-crema"><span aria-hidden="true">●○○</span> Nivel fácil</span>
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-amarillo-farol text-azul-noche"><span aria-hidden="true">●●○</span> Nivel medio</span>
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-naranja-pedal text-azul-noche"><span aria-hidden="true">●●●</span> Nivel difícil</span>
+                </div>
+            </section>
+
+            <!-- ===== Alertas ===== -->
+            <section aria-labelledby="alertas-titulo">
+                <h2 id="alertas-titulo" class="mb-6 font-montserrat text-2xl font-bold lg:text-3xl">Alertas</h2>
+                <div class="flex flex-col gap-4 max-w-2xl">
+                    <div class="p-4 rounded-xl border-l-4 border-azul-noche bg-azul-noche/5 dark:border-crema dark:bg-crema/10">
+                        <p class="mb-2 font-montserrat font-bold">Información</p>
+                        <p class="text-gris-asfalto dark:text-crema/80">Las salidas son de jueves a sábado a las 7:00 p. m. Llega 20 minutos antes para recoger tu equipo.</p>
+                    </div>
+                    <div role="status" class="p-4 rounded-xl border-l-4 border-verde-ruta bg-verde-ruta/10 dark:bg-verde-ruta/15">
+                        <p class="mb-2 font-montserrat font-bold">¡Inscripción confirmada!</p>
+                        <p class="text-gris-asfalto dark:text-crema/80">Te enviamos un correo con los datos de tu ruta Luces del Centro.</p>
+                    </div>
+                    <div class="p-4 rounded-xl border-l-4 border-naranja-pedal bg-naranja-pedal/15">
+                        <p class="mb-2 font-montserrat font-bold">Advertencia</p>
+                        <p class="text-gris-asfalto dark:text-crema/80">Si hay lluvia fuerte la salida se reprograma. Revisa tu correo el día de la ruta.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== Campos de formulario ===== -->
+            <section aria-labelledby="campos-titulo">
+                <h2 id="campos-titulo" class="mb-6 font-montserrat text-2xl font-bold lg:text-3xl">Campos de formulario</h2>
+                <form action="#" class="flex flex-col gap-6 max-w-md">
+                    <div>
+                        <label for="kit-correo" class="block mb-2 font-semibold">Correo electrónico</label>
+                        <input id="kit-correo" name="correo" type="email" autocomplete="email" placeholder="tu.nombre@correo.com" aria-describedby="kit-correo-ayuda" class="block w-full px-4 py-3 rounded-xl border border-gris-asfalto bg-crema text-azul-noche placeholder:text-gris-asfalto focus:border-verde-ruta focus:outline-none focus:ring-4 focus:ring-verde-ruta/40 dark:border-crema/40 dark:bg-azul-noche dark:text-crema dark:placeholder:text-crema/60 dark:focus:border-amarillo-farol dark:focus:ring-amarillo-farol/40 dark:scheme-dark">
+                        <p id="kit-correo-ayuda" class="mt-2 text-sm text-gris-asfalto dark:text-crema/80">Te enviaremos la confirmación a este correo.</p>
+                    </div>
+                    <div>
+                        <label for="kit-celular" class="block mb-2 font-semibold">Celular</label>
+                        <input id="kit-celular" name="celular" type="tel" autocomplete="tel" inputmode="numeric" placeholder="300 123 4567" aria-describedby="kit-celular-ayuda" class="block w-full px-4 py-3 rounded-xl border border-gris-asfalto bg-crema text-azul-noche placeholder:text-gris-asfalto focus:border-verde-ruta focus:outline-none focus:ring-4 focus:ring-verde-ruta/40 dark:border-crema/40 dark:bg-azul-noche dark:text-crema dark:placeholder:text-crema/60 dark:focus:border-amarillo-farol dark:focus:ring-amarillo-farol/40 dark:scheme-dark">
+                        <p id="kit-celular-ayuda" class="mt-2 text-sm text-gris-asfalto dark:text-crema/80">Número de 10 dígitos que empiece por 3.</p>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>

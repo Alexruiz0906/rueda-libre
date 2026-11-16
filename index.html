@@ -27,14 +27,17 @@
                     </div>
                     <div class="collapse navbar-collapse col-12 col-lg-9" id="siteNavigation">
                         <div class="row w-100 align-items-center g-2">
-                            <div class="col-12 col-lg-4">
+                            <div class="col-12 col-lg-3">
                                 <a href="index.html" aria-current="page" class="nav-link botones-nav active"><i class="bi bi-house-door-fill me-1" aria-hidden="true"></i>Inicio</a>
                             </div>
-                            <div class="col-12 col-lg-4">
+                            <div class="col-12 col-lg-3">
                                 <a href="paginas/tarifas.html" class="nav-link botones-nav"><i class="bi bi-tag-fill me-1" aria-hidden="true"></i>Tarifas</a>
                             </div>
-                            <div class="col-12 col-lg-4">
+                            <div class="col-12 col-lg-3">
                                 <a href="paginas/reservas.html" class="nav-link botones-nav"><i class="bi bi-calendar-check-fill me-1" aria-hidden="true"></i>Reservas</a>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <a href="nocturna/index.html" class="nav-link botones-nav botones-nav-nocturna"><i class="bi bi-moon-stars-fill me-1" aria-hidden="true"></i>Rueda Nocturna</a>
                             </div>
                         </div>
                     </div>
@@ -44,22 +47,30 @@
     </header>
 
     <main>
-        <section class="container py-4">
+        <div class="container py-4">
             <div class="row align-items-center g-4">
-                <article class="col-12 col-md-5">
+                <div class="col-12 col-md-5">
                     <img src="img/logo.jpg" alt="Logo Rueda Libre" class="img-fluid w-100 rounded">
-                </article>
+                </div>
                 <div class="col-12 col-md-7">
                     <div id="homeCarousel" class="carousel carousel-home slide" data-bs-ride="carousel" data-bs-interval="5000" role="region" aria-label="Promociones de Rueda Libre" aria-roledescription="carrusel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+                            <div class="carousel-item active" role="group" aria-roledescription="diapositiva" aria-label="1 de 4">
                                 <img src="img/promo.png" alt="Promoción de martes: 2 por 1 en bicicletas urbanas." class="d-block w-100 rounded">
                             </div>
-                            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+                            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="2 de 4">
                                 <img src="img/promo2.png" alt="20% de descuento en bicicletas eléctricas de lunes a jueves." class="d-block w-100 rounded">
                             </div>
-                            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+                            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="3 de 4">
                                 <img src="img/promo3.png" alt="Paseo guiado gratis de cumpleaños." class="d-block w-100 rounded">
+                            </div>
+                            <div class="carousel-item carousel-nocturna" role="group" aria-roledescription="diapositiva" aria-label="4 de 4">
+                                <a href="nocturna/index.html" class="carousel-nocturna-link rounded">
+                                    <span class="carousel-nocturna-badge">Nuevo · Jueves a sábado</span>
+                                    <span class="carousel-nocturna-title">Rueda <span>Nocturna</span></span>
+                                    <span class="carousel-nocturna-text">Descubre Medellín en bici cuando se encienden las luces. Tres rutas desde $55.000.</span>
+                                    <span class="carousel-nocturna-cta">Conoce la campaña <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+                                </a>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev" aria-label="Mostrar diapositiva anterior" aria-controls="homeCarousel">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -73,7 +84,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         <div class="container py-4" id="routes">
             <h1 class="text-center mb-4">NUESTRAS RUTAS</h1>
             <div class="row g-3 text-center">
@@ -113,7 +124,7 @@
             </div>
         </div>
 
-        <section class="container py-4">
+        <div class="container py-4">
             <div class="row g-4">
                 <div class="col-12 col-lg-8 d-grid gap-4">
                     <section class="card shadow-sm" id="services">
@@ -193,7 +204,7 @@
                     </div>
                 </aside>
             </div>
-        </section>
+        </div>
 
         <section class="container py-4" aria-labelledby="fleet-title">
             <h2 class="text-center mb-4" id="fleet-title">Nuestra flota</h2>
@@ -297,6 +308,8 @@
                 <h2 class="h5">Contacto</h2>
                 <p class="mb-1">Email:</p>
                 <a href="mailto:info@ruedalibre.com"><i class="bi bi-envelope-fill me-1" aria-hidden="true"></i>info@ruedalibre.com</a>
+                <p class="mb-1 mt-2">WhatsApp:</p>
+                <a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp me-1" aria-hidden="true"></i>+57 300 000 0000</a>
             </div>
             <div class="col-12 col-md-4">
                 <h2 class="h5">Horario</h2>

@@ -158,3 +158,244 @@ Guardé dos capturas de la página de inicio, tomadas al mismo tamaño de escrit
 - Después de personalizar: img/capturas/despues-de-personalizar.png
 
 Con esto cierro la bitácora de esta semana y dejo registrado lo que cambié, lo que comprobé y el resultado visual del sitio.
+
+
+==================================================================
+BITÁCORA RUEDA NOCTURNA (Tailwind CSS con la CLI) · carpeta nocturna/
+==================================================================
+
+13. MiniReto 2 · Tailwind con la CLI y botones
+Instalé Node.js (v26 LTS) y dentro de nocturna/ ejecuté:
+- npm init -y
+- npm install tailwindcss @tailwindcss/cli   (versión 4.3.5)
+Creé src/input.css con @import "tailwindcss"; y un .gitignore con node_modules/.
+En package.json dejé dos scripts:
+- npm run dev   -> npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch
+- npm run build -> lo mismo pero con --minify (para publicar)
+Con --watch la CLI queda escuchando: cada vez que guardo un .html vuelve a generar src/output.css.
+
+Qué encontré al buscar en output.css:
+- Clase que uso: bg-amber-400 SÍ aparece (.bg-amber-400 { background-color: var(--color-amber-400); }) y también la variable --color-amber-400 en la capa theme.
+- Clase que no uso: bg-pink-500 NO aparece, ni siquiera la variable --color-pink-500.
+Por qué ocurre: la CLI escanea mis archivos (html) buscando nombres de clases y solo genera el CSS de las que encuentra. Las variables del tema también se recortan si no se usan. Por eso el archivo pesa ~16 KB y no los megas que tendría Tailwind completo. Consecuencia práctica: las clases tienen que estar escritas completas en el HTML (no armarlas concatenando textos), o no se generan.
+
+Botones: principal, secundario y de contorno, todos con hover: (cambian de color y sombra) y focus:. Como quité el contorno del navegador con focus:outline-none, lo reemplacé por un anillo visible: focus:ring-4 + focus:ring-offset-2 (Verde Ruta en modo claro, Amarillo Farol en modo oscuro).
+Prueba con teclado (confirmar a mano): con Tab el foco debe recorrer en orden logo -> enlaces -> botones; cada botón debe mostrar el anillo y Enter activa el enlace.
+
+14. MiniReto 3 · Card de rutas
+Construí la sección "Rutas" (#rutas) con tres cards (Luces del Centro, Miradores de la Ciudad, Luna en Las Palmas).
+- Imagen: w-full h-48 object-cover -> ancho completo y alto uniforme sin deformar la foto.
+- Etiqueta de nivel con color distinto Y texto: "Nivel fácil" (Verde Ruta), "Nivel medio" (Amarillo Farol), "Nivel difícil" (Naranja Pedal). Además lleva puntos ●○○ / ●●○ / ●●● (aria-hidden) para no depender solo del color.
+- Lista de datos con <dl>: el nombre del dato (dt) va pequeño, en mayúsculas y en tono secundario (text-xs uppercase text-gris-asfalto); el valor (dd) destacado (text-lg font-semibold).
+- Precio destacado (text-3xl font-extrabold) y el botón principal del MiniReto 2.
+- Hover de la card: hover:shadow-xl y hover:border-verde-ruta. El borde ya existía (1px) y solo cambia de color, así que el contenido no se mueve.
+
+15. MiniReto 4 · Kit de componentes (nocturna/componentes.html)
+La página reúne: los tres botones, una card de ruta, las tres etiquetas de nivel, tres alertas y dos campos.
+- Alertas: fondo suave (color/10 o /15), borde lateral border-l-4 del color, título en negrita y texto. La de éxito tiene role="status": así el lector de pantalla la anuncia como un aviso (de forma educada, sin interrumpir), que es lo correcto para una confirmación. role="alert" lo reservaría para errores urgentes.
+- Campos (correo y celular): <label for="..."> visible asociado al id del input, borde, relleno px-4 py-3, placeholder de ejemplo, texto de ayuda debajo conectado con aria-describedby, y foco visible (cambia el borde + anillo ring-4).
+
+Reglas del kit:
+- Radios: rounded-xl en botones, campos y alertas; rounded-2xl en cards y contenedores; rounded-full en etiquetas/píldoras.
+- Espaciado: solo la escala 2 · 4 · 6 · 8 (8/16/24/32 px). Botones px-6 py-3, campos px-4 py-3, cards p-6, separaciones gap-4 o gap-6.
+- Colores: solo los seis de la marca (ver MiniReto 7). Foco siempre con anillo Verde Ruta (claro) / Amarillo Farol (oscuro).
+- Sombras: shadow-md en reposo, shadow-lg/xl en hover.
+Publicación: pendiente de hacer commit + push y revisar en línea https://<usuario>.github.io/<repo>/nocturna/componentes.html
+
+16. MiniReto 5 · Layout de la landing
+Estructura semántica: <header>, <main> con una <section> por bloque (#inicio, #rutas, #como-funciona, #inscripcion) y <footer>. Los enlaces del menú usan esas anclas.
+Contenedor común en todas las secciones: max-w-6xl mx-auto px-4 sm:px-6 lg:px-8.
+Encabezado con flex: justify-between + items-center (logo a la izquierda; enlaces y botón "Inscríbete" a la derecha).
+Rutas: grid con grid-cols-3 y gap-6.
+"¿Cómo funciona?": elegí GRID (grid-cols-4) y no flex porque son cuatro tarjetas que deben tener exactamente el mismo ancho y alinearse en filas y columnas; con grid controlo el número de columnas por breakpoint (1/2/4) en una sola clase, mientras que con flex tendría que calcular anchos (basis) y los textos de distinto largo deformarían las cajas.
+Pie: tres bloques (marca, contacto, horario) con flex y justify-between.
+Copié los componentes de componentes.html sin crear variantes nuevas.
+
+17. MiniReto 6 · Responsive mobile-first
+Revisé la versión solo-escritorio a 360 px. Lo que se rompía:
+- Encabezado: los enlaces no cabían; "Inscripción" quedaba cortado y el botón "Inscríbete" se salía de la pantalla. El logo se partía en dos líneas.
+- Sección principal: el título text-7xl ocupaba todo el ancho y los dos recuadros de datos (w-64 en fila) se salían por la derecha, generando scroll horizontal (el "$55.000" se veía cortado).
+- Rutas: tres columnas de ~88 px; los nombres se partían palabra por palabra ("Mirad…", "Palma…") y los precios quedaban cortados.
+- ¿Cómo funciona?: cuatro columnas de ~60 px, el texto se partía casi letra por letra ("Inscríbe").
+- Franja de inscripción: título y botón apretados en la misma fila.
+- Pie: tres bloques en fila, muy estrechos.
+
+Cambios (sin prefijo = celular; sm:, md:, lg: = pantallas más grandes):
+- Rutas: grid-cols-1 md:grid-cols-2 lg:grid-cols-3.
+- Pasos: grid-cols-1 sm:grid-cols-2 lg:grid-cols-4.
+- Encabezado: flex-col md:flex-row (apilado en celular, fila desde md).
+- Enlaces del menú: hidden md:block (ocultos en celular). El botón "Inscríbete" siempre visible.
+- Datos del hero: flex-col sm:flex-row.
+- Franja de inscripción: grid-cols-1 lg:grid-cols-2. Pie: flex-col md:flex-row.
+- Tipografía: h1 text-4xl sm:text-5xl lg:text-7xl; h2 text-3xl lg:text-4xl.
+- Espaciado: secciones py-12 md:py-16 lg:py-24; contenedor px-4 sm:px-6 lg:px-8.
+
+Pruebas en modo dispositivo:
+| Ancho   | Encabezado                        | Rutas      | Pasos      | Otros                                       |
+|---------|-----------------------------------|------------|------------|---------------------------------------------|
+| 360 px  | Apilado, solo logo + Inscríbete   | 1 columna  | 1 columna  | Datos del hero apilados; sin scroll lateral |
+| 768 px  | En fila, enlaces visibles         | 2 columnas | 2 columnas | 3ª ruta sola en la segunda fila             |
+| 1024 px | En fila, enlaces visibles         | 3 columnas | 4 columnas | Título grande (text-7xl); formulario a 2 col|
+| 1280 px | En fila, contenido centrado 6xl   | 3 columnas | 4 columnas | Márgenes laterales amplios                  |
+
+18. MiniReto 7 · Tema de la marca y modo oscuro
+En src/input.css definí con @theme:
+- --color-verde-ruta #1E7A4F, --color-naranja-pedal #F39A2B, --color-azul-noche #14213D, --color-crema #FAF6EF, --color-gris-asfalto #5B6470 (los cinco del sitio) y --color-amarillo-farol #FFD166 (campaña).
+- --font-montserrat y --font-open-sans, cargadas desde Google Fonts (link en el <head>).
+Tailwind genera solo las utilidades: bg-verde-ruta, text-amarillo-farol, border-gris-asfalto, font-montserrat, etc. Reemplacé todos los colores genéricos (slate, amber, emerald) en index.html y componentes.html; comprobé con una búsqueda que no queda ninguno.
+Modo oscuro con dark: (estrategia por defecto, prefers-color-scheme): fondo azul-noche, texto crema, cards crema/5 con borde crema/15, campos con fondo azul-noche y borde crema/40, botón principal amarillo farol.
+
+Contraste (WCAG, mínimo 4,5:1 para texto normal):
+| Combinación                        | Contraste | Resultado                 |
+|------------------------------------|-----------|---------------------------|
+| Verde Ruta sobre Azul Noche        | 3,01:1    | NO cumple -> corregido    |
+| Gris Asfalto sobre Azul Noche      | 2,66:1    | NO cumple -> corregido    |
+| Crema sobre Azul Noche             | 14,83:1   | Cumple                    |
+| Amarillo Farol sobre Azul Noche    | 11,08:1   | Cumple                    |
+| Crema al 80 % sobre card oscura    | 8,66:1    | Cumple                    |
+| Azul Noche sobre Naranja Pedal     | 7,20:1    | Cumple (hover y etiqueta) |
+| Crema sobre Verde Ruta             | 4,93:1    | Cumple (botón secundario) |
+Correcciones: en oscuro los textos Verde Ruta (precio, "Nocturna", hover de enlaces) pasan a Amarillo Farol (dark:text-amarillo-farol) y el texto secundario Gris Asfalto pasa a Crema al 80 % (dark:text-crema/80). El anillo de foco Verde Ruta pasa a Amarillo Farol.
+Probé el modo oscuro emulando prefers-color-scheme: dark (DevTools > Rendering).
+
+19. MiniReto 8 · Legibilidad (@apply) y Bootstrap vs Tailwind
+Listas de clases más repetidas en index.html (antes de @apply):
+- Botón principal: 6 veces (31 clases cada vez).
+- Nombre del dato de la card (text-xs uppercase tracking-wide ...): 9 veces.
+- Valor del dato (text-lg font-semibold): 9 veces.
+- Texto secundario (text-gris-asfalto dark:text-crema/80): 6 veces.
+- Caja de paso (p-6 rounded-2xl border ...): 4 veces. Número del paso: 4 veces.
+- Card de ruta, etiqueta de nivel, precio: 3 veces cada una. Enlaces del menú: 3. Campos: 2.
+Decisión: solo los botones (un único elemento que se repite mucho) pasaron a @layer components con @apply, en tres clases: .btn-primario, .btn-secundario, .btn-contorno. Las piezas grandes (cards, alertas, campos) mantienen el marcado del kit copiado igual en todos lados.
+Dentro de cada clase ordené las utilidades por categoría: layout -> espaciado -> bordes -> tipografía -> color -> estados (hover, focus, dark).
+Resultado: index.html bajó de 25.583 a 21.386 bytes y cada botón ahora es class="btn-primario".
+
+Medición del CSS (npm run build = --minify):
+- output.css minificado SIN @apply: 22.849 bytes
+- output.css minificado CON @apply: 28.366 bytes (~4,9 KB con gzip)
+  Ojo: @apply no ahorra CSS, al contrario: copia las declaraciones dentro de cada clase propia. Mejora la legibilidad del HTML, no el peso; por eso hay que usarlo con moderación.
+- Sitio v2.0 con Bootstrap 5.3.8 (lo que descarga el navegador, CDN jsDelivr):
+  bootstrap.min.css 232.111 bytes (~30,9 KB gzip)
+  bootstrap.bundle.min.js 80.496 bytes (~23,7 KB gzip)
+  bootstrap-icons.min.css 87.008 bytes (~13,5 KB gzip) + la fuente de iconos
+  css/styles.css propio 3.787 bytes
+  Total ≈ 403 KB sin comprimir (~68 KB gzip) frente a 28 KB (~5 KB gzip) de Tailwind y 0 KB de JavaScript.
+  (Confirmar en DevTools > Network con "Disable cache": columnas Size/Transferred.)
+
+Comparativa Bootstrap vs Tailwind:
+| Criterio              | Bootstrap (v2.0)                                                                 | Tailwind (Rueda Nocturna)                                                              |
+|-----------------------|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| Curva de aprendizaje  | Más rápida al inicio: copias navbar, card, carrusel y funciona.                  | Más lenta al inicio (muchas utilidades, CLI, Node), pero luego se avanza muy rápido.   |
+| Personalización       | Tuve que pisar variables --bs-* y clases (.btn-success, .card) para la marca.    | @theme con mis 6 colores y 2 fuentes; todo sale con nombre propio y modo oscuro dark:. |
+| Tamaño final          | ≈ 403 KB (~68 KB gzip) aunque use una parte; incluye JS.                         | 28 KB (~5 KB gzip), solo las clases usadas; 0 JS.                                      |
+| Casos de uso          | Sitios con componentes interactivos listos (modal, carrusel, menú hamburguesa).  | Diseños propios de marca, landings, sitios donde importa el peso y el control visual.  |
+
+Recomendación para Rueda Libre: Tailwind. El cliente quiere su identidad visual (colores, fuentes, Amarillo Farol, modo oscuro) y el tráfico llega casi todo desde celulares: Tailwind me dio un CSS ~13 veces más liviano, sin JavaScript, y el tema de la marca quedó en un solo lugar (@theme). Lo que Bootstrap resolvía con JS (menú hamburguesa, carrusel, modal de políticas) se puede reemplazar con <details>, scroll-snap o <dialog> nativos y un poco de JS. La condición es mantener el kit de componentes y las reglas del kit para que el HTML no se llene de clases distintas.
+
+20. MiniReto 9 · Formulario de inscripción (40 min)
+Tiempo real: ____ min (anotar al terminar).
+Sección #inscripcion con su encabezado (<header> con h2 y texto) y un <form> agrupado en tres <fieldset> con <legend>:
+1. Tus datos: nombre completo, correo, celular.
+2. Tu salida: ruta, número de acompañantes y día de salida.
+3. Tu experiencia: nivel de experiencia y bicicleta propia.
+Al final, la casilla de condiciones y el botón principal del kit "Enviar inscripción".
+
+Control elegido para cada dato (todos con <label for> asociado al id):
+| Dato                  | Control                                   | Por qué                                                         |
+|-----------------------|-------------------------------------------|-----------------------------------------------------------------|
+| Nombre completo       | input type="text", minlength="3"          | Texto libre; mínimo 3 caracteres                                |
+| Correo                | input type="email"                        | El navegador valida el formato y muestra el teclado de correo   |
+| Celular               | input type="tel", pattern="3[0-9]{9}"     | 10 dígitos empezando por 3; title explica el formato            |
+| Ruta                  | select con 3 opciones                     | Una sola opción de una lista fija; primera opción vacía disabled |
+| Día de salida         | 3 radios (jueves, viernes, sábado)        | Pocas opciones, todas visibles, se elige una                    |
+| Acompañantes          | input type="number", min="0" max="3"      | Número entero con rango                                         |
+| Nivel de experiencia  | select (principiante/intermedio/avanzado) | Una opción de una lista fija                                    |
+| Bicicleta propia      | 2 radios (sí / no)                        | Respuesta binaria visible                                       |
+| Condiciones           | checkbox required                         | Aceptación obligatoria                                          |
+Los grupos de radios van en su propio <fieldset> con <legend> ("Día de salida", "¿Tienes bicicleta propia?") para que el lector de pantalla lea la pregunta con cada opción.
+Validación nativa: todo lleva required (en los radios basta con ponerlo en uno del grupo), minlength, pattern con title, min y max. Sin JavaScript.
+Estilo: campos del kit (rounded-xl, px-4 py-3, foco con anillo); cada fieldset es grid grid-cols-1 md:grid-cols-2 para que los campos cortos queden en dos columnas desde md; el nombre ocupa las dos (md:col-span-2). Las opciones de radio son "píldoras" que se marcan con has-checked: y muestran el anillo con has-focus-visible:. Modo oscuro con dark: (fondos, bordes, texto, accent-amarillo-farol y dark:scheme-dark para que el selector, el spinner del número y los radios nativos también se vean oscuros).
+
+Casos de prueba (confirmar a mano en el navegador):
+| Caso                                   | Resultado esperado                                                   | OK |
+|----------------------------------------|----------------------------------------------------------------------|----|
+| Enviar vacío                           | No envía; el navegador lleva el foco al nombre y pide completarlo    |    |
+| Nombre "Al"                            | "Usa al menos 3 caracteres"                                          |    |
+| Correo "ana@"                          | Mensaje de formato de correo                                         |    |
+| Celular "2001234567" o "30012"         | Mensaje con el title: 10 dígitos empezando por 3                     |    |
+| Acompañantes 4 o -1                    | "El valor debe ser menor o igual a 3" / "mayor o igual a 0"          |    |
+| Sin ruta, sin día o sin condiciones    | No envía y señala el campo faltante                                  |    |
+| Todo completo y válido                 | Envía (action="#", la página vuelve arriba con los datos en la URL)  |    |
+| Solo teclado                           | Tab recorre los campos en orden; flechas cambian el radio; Espacio marca la casilla; Enter envía |    |
+
+21. MiniReto 10 · Integración sitio (Bootstrap) ↔ landing (Tailwind) (40 min)
+Tiempo real: ____ min.
+En el sitio v2.0:
+- Navbar de index.html, paginas/tarifas.html y paginas/reservas.html: agregué "Rueda Nocturna" (icono bi-moon-stars-fill) como cuarto botón; las columnas pasaron de col-lg-4 a col-lg-3. Tiene su propio estilo (.botones-nav-nocturna: Azul Noche con texto Amarillo Farol).
+- Carrusel: cuarta diapositiva (4 de 4) que es un enlace a la landing, con fondo Azul Noche, etiqueta "Nuevo", título "Rueda Nocturna" y botón "Conoce la campaña". En celular (<576 px) oculto la etiqueta y el texto largo para que quepa en la proporción 3:2.
+En la landing:
+- El logo (bici + "Rueda Nocturna · por Rueda Libre") lleva al inicio del sitio: ../index.html.
+- Botón "Reserva tu bici" (secundario del kit) en la sección principal y enlace en el pie hacia ../paginas/reservas.html.
+Rutas relativas usadas:
+| Desde                 | Hacia                    | Ruta                        |
+|-----------------------|--------------------------|-----------------------------|
+| index.html (raíz)     | landing                  | nocturna/index.html         |
+| paginas/*.html        | landing                  | ../nocturna/index.html      |
+| nocturna/index.html   | inicio del sitio         | ../index.html               |
+| nocturna/index.html   | reservas                 | ../paginas/reservas.html    |
+| nocturna/index.html   | imágenes                 | ../img/...                  |
+Misma marca en los dos productos:
+- Colores: los mismos códigos en css/styles.css (--verde-ruta #1E7A4F, --naranja-pedal #F39A2B, --azul-noche #14213D, --crema #FAF6EF, --gris-asfalto #5B6470 y agregué --amarillo-farol #FFD166) y en el @theme de nocturna/src/input.css.
+- Fuentes: el sitio usaba Poppins en el cuerpo; lo cambié a Open Sans (cuerpo) + Montserrat (títulos), igual que la landing, y quité Poppins de la importación.
+- Pie: en los dos productos aparecen el correo info@ruedalibre.com y WhatsApp +57 300 000 0000 (lo agregué al pie de las tres páginas del sitio).
+Verificación de enlaces: revisé con un script los 80 enlaces y recursos locales (href/src) de las 5 páginas, incluidas las anclas #id: 0 rotos. Pendiente: repetir la revisión en GitHub Pages después del push.
+
+22. MiniReto 11 · Planes Rueda Nocturna (45 min)
+Tiempo real: ____ min.
+Sección #planes (también en el menú) con tres cards: Individual ($55.000 por persona), Pareja ($99.000 las dos personas) y Grupo 4 a 8 ($45.000 por persona).
+- Cuadrícula: grid grid-cols-1 lg:grid-cols-3 gap-6. Como el grid estira los elementos de cada fila (align-items: stretch por defecto), las tres cards quedan de la misma altura.
+- Cada card es flex flex-col justify-between gap-6: arriba el contenido y el botón siempre al final, aunque una card tenga más texto.
+- Beneficios: ul flex flex-col gap-3 y cada li flex items-start gap-3 con un ✓ (aria-hidden), así la separación es uniforme y el texto largo queda alineado.
+- Plan Pareja destacado: border-4 de color (Verde Ruta / Amarillo Farol en oscuro) frente a border de 1 px en las otras, fondo diferente (amarillo-farol/20, en oscuro /10), shadow-xl y la etiqueta "★ Más elegido" al comienzo de la card. La etiqueta va dentro de la card (no con position absolute), y como las columnas del grid tienen ancho fijo, las demás cards no se mueven.
+- Box model del kit: las tres con p-6, rounded-2xl y gap-6. En DevTools > Computed: mismo ancho de columna (box-sizing: border-box, el borde va por dentro del ancho) y mismo padding de 24 px; la de Pareja solo tiene 3 px más de borde por lado.
+Contraste de la card Pareja:
+| Combinación                                  | Contraste |
+|----------------------------------------------|-----------|
+| Azul Noche sobre Amarillo Farol 20 % (claro) | 13,96:1   |
+| Gris Asfalto sobre Amarillo Farol 20 %       | 5,24:1    |
+| Verde Ruta (precio) sobre Amarillo Farol 20 %| 4,64:1    |
+| Crema sobre Verde Ruta (etiqueta)            | 4,93:1    |
+| Crema 80 % sobre Amarillo Farol 10 % (oscuro)| 7,90:1    |
+| Amarillo Farol sobre Amarillo Farol 10 %     | 8,84:1    |
+Todas superan 4,5:1.
+
+23. MiniReto 12 · Lanzamiento y entrega
+Lista de verificación final:
+| Punto                                        | Sitio v2.0 | Landing | Cómo lo comprobé                                    |
+|----------------------------------------------|------------|---------|-----------------------------------------------------|
+| Estructura semántica (header/main/footer...) | Sí         | Sí      | Revisión del código + validador W3C                 |
+| Texto alternativo en imágenes                | Sí         | Sí      | Todas las <img> tienen alt (decorativas con alt="") |
+| Encabezados en orden (un h1 por página)      | Sí*        | Sí      | *Agregué h1 en reservas y tarifas                   |
+| Contraste                                    | Sí         | Sí      | Tablas de contraste (MiniRetos 7 y 11)              |
+| Teclado / foco visible                       | Sí         | Sí      | Anillo de foco en botones, enlaces y campos         |
+| Formularios validados                        | Sí         | Sí      | Validación nativa (required, pattern, min/max...)   |
+| Responsive 360 / 768 / 1280                  | Sí         | Sí      | Modo dispositivo (ver tabla MiniReto 6)             |
+| Modo claro y oscuro                          | —          | Sí      | prefers-color-scheme en DevTools                    |
+| Cero 404                                     | Sí         | Sí      | 80 enlaces locales revisados, 0 rotos               |
+| Sin estilos en línea (style="")              | Sí         | Sí      | Búsqueda en todos los .html: 0                      |
+| output.css minificado                        | —          | Sí      | npm run build (--minify): 30.980 bytes              |
+
+Validador W3C (https://validator.w3.org/nu/):
+- nocturna/index.html: 1 error -> autocomplete="tel-national" no es válido en ese contexto; lo cambié a autocomplete="tel". Además 21 avisos informativos por la barra final en elementos vacíos (<img ... />); la quité.
+- paginas/reservas.html: 1 error -> el modal tenía aria-labelledby en un div sin role; agregué role="dialog". Aviso: no había h1; agregué "Reserva tu bicicleta".
+- paginas/tarifas.html: aviso de que no había h1; agregué "Tarifas".
+- index.html: avisos de section/article sin encabezado en el bloque logo + carrusel y en el contenedor de servicios; los cambié por div porque solo agrupan para el diseño (las secciones internas sí tienen su encabezado).
+Resultado final: las 5 páginas con 0 errores y 0 avisos.
+
+README.md: convertí la bitácora en un README.md en la raíz (descripción, enlaces, páginas, tecnologías, recomendación de framework, capturas, aprendizajes y autor). Las capturas están en img/capturas/.
+
+Guion de demo (3 minutos):
+- 0:00–0:30 Contexto: Rueda Libre alquila bicicletas en Medellín y lanza Rueda Nocturna, una campaña de rutas de noche que se promociona en redes (tráfico casi todo desde celular).
+- 0:30–2:00 Recorrido en vivo: sitio (navbar y diapositiva 4 "Rueda Nocturna") -> landing (rutas, planes con Pareja destacado) -> inscripción (enviar vacío para mostrar la validación y luego completo) -> vista de celular (DevTools a 360 px) -> modo oscuro (Rendering > prefers-color-scheme: dark) -> volver al sitio con el logo y "Reserva tu bici".
+- 2:00–2:45 Dos decisiones técnicas: (1) Tailwind con la CLI y --minify: 31 KB de CSS sin JavaScript frente a ~403 KB de Bootstrap; (2) en modo oscuro cambié Verde Ruta por Amarillo Farol porque Verde Ruta sobre Azul Noche da 3,01:1 y no cumple WCAG.
+- 2:45–3:00 Cierre y preguntas.
